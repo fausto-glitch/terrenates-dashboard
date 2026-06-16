@@ -228,6 +228,8 @@ footer{text-align:center;padding:16px;font-size:11px;color:var(--muted);border-t
   <button onclick="showTab('flota',this)">🚛 Flota</button>
   <button onclick="showTab('pastoreo',this)">🌿 Pastoreo</button>
   <button onclick="showTab('sops',this)">📋 SOPs</button>
+  <button onclick="showTab('infraestructura',this)">🏗️ Infraestructura</button>
+  <button onclick="showTab('huerta',this)">🌱 Huerta BD</button>
 </div>
 
 <!-- ══════════════════════════════════════════
@@ -3692,7 +3694,527 @@ function switchCalTab(tab) {
       </tbody>
     </table></div>
   </section>
+</div>
 
+<!-- ══════════════════════════════════════════
+     INFRAESTRUCTURA Y BODEGAS
+     ══════════════════════════════════════════ -->
+<div id="tab-infraestructura" class="tab-content">
+
+  <div class="alert a"><span>🏗️</span><span class="alert-text">Departamento de soporte — transversal a todas las divisiones. <b>Pendiente de levantamiento con Julio (~22-jun-2026):</b> m² por construcción, km de tubería por diámetro, capacidad de pilas, inventario físico de bodegas. Los datos en verde son conocidos; los campos 🔄 se capturan con Julio.</span></div>
+
+  <!-- ══ BODEGAS ══ -->
+  <div style="margin:18px 0 8px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--border);padding-bottom:6px">🏠 Bodegas e Instalaciones</div>
+
+  <!-- Bodega Lienzo -->
+  <div class="proto-section nut" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🪢</span>
+      <div style="flex:1"><div class="proto-name">Bodega Lienzo</div><div style="font-size:11px;color:var(--muted)">Cerco eléctrico · tubería de reserva · herramienta · inventario pendiente con Julio</div></div>
+      <span class="tag tag-a">Inventario pendiente</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Contenido conocido (Balance 2025)</div>
+          <div class="proto-item"><span class="proto-item-icon">⚡</span><div><div class="proto-item-title">Cerco eléctrico</div><div class="proto-item-desc">56 km de polywire + postes + pulsadores · valor en balance</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🔧</span><div><div class="proto-item-title">Herramienta y tubería de reserva</div><div class="proto-item-desc">~95 partidas inventariadas en balance 2025 · valor $972,319 total material de bodegas</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🪣</span><div><div class="proto-item-title">Tubería PVC y acero de reserva</div><div class="proto-item-desc">Material de reparación de la red hidráulica</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--amber);margin-bottom:8px">🔄 Pendiente — Levantamiento con Julio</div>
+          <div class="row"><span class="row-label">Metros cuadrados</span><span class="ph">🔄 medir</span></div>
+          <div class="row"><span class="row-label">Inventario partida por partida</span><span class="ph">🔄 conteo físico</span></div>
+          <div class="row"><span class="row-label">Stock polywire (metros)</span><span class="ph">🔄 medir carrete</span></div>
+          <div class="row"><span class="row-label">Stock tubería PVC (metros/diámetro)</span><span class="ph">🔄 medir</span></div>
+          <div class="row"><span class="row-label">Pulsadores: cantidad y estado</span><span class="ph">🔄 inspección</span></div>
+          <div style="margin-top:10px;font-size:12px;color:var(--muted)">Frecuencia de revisión: trimestral (junto con bodega de herramienta)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bodega Macheros / Herramienta -->
+  <div class="proto-section nut" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🔨</span>
+      <div style="flex:1"><div class="proto-name">Bodega de Herramienta (Macheros)</div><div style="font-size:11px;color:var(--muted)">Herramienta manual y eléctrica · revisión de inventario cada 3 meses</div></div>
+      <span class="tag tag-a">Revisión trimestral</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="rule">📋 PROTOCOLO: Inventario completo cada 3 meses. Toda herramienta que sale debe anotarse en la bitácora. Herramienta dañada → reporte inmediato para sustitución o reparación.</div>
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Categorías de inventario</div>
+          <div class="proto-item"><span class="proto-item-icon">🔧</span><div><div class="proto-item-title">Herramienta manual</div><div class="proto-item-desc">Llaves, desarmadores, pinzas, mazos, barras, carretillas, palas, picos, rastrillos</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">⚡</span><div><div class="proto-item-title">Herramienta eléctrica / neumática</div><div class="proto-item-desc">Taladros, amoladoras, compresores, soldadora, cortadora</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🔗</span><div><div class="proto-item-title">Materiales de cerco</div><div class="proto-item-desc">Alambre, grapas, tensores, aisladores, postes, clavos</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🪣</span><div><div class="proto-item-title">Ferretería y consumibles</div><div class="proto-item-desc">Tornillos, tuercas, remaches, selladores, lubricantes, cintas</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--amber);margin-bottom:8px">🔄 Pendiente — Levantamiento con Julio</div>
+          <div class="row"><span class="row-label">Metros cuadrados</span><span class="ph">🔄 medir</span></div>
+          <div class="row"><span class="row-label">Inventario completo partida por partida</span><span class="ph">🔄 conteo físico</span></div>
+          <div class="row"><span class="row-label">Estado de herramienta eléctrica</span><span class="ph">🔄 inspección</span></div>
+          <hr style="border-color:var(--border);margin:10px 0">
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:6px">Calendario de revisiones 2026</div>
+          <div class="row"><span class="row-label">1ª revisión</span><span class="row-val">22-jun-2026 (arranque Julio)</span></div>
+          <div class="row"><span class="row-label">2ª revisión</span><span class="row-val">sep-2026</span></div>
+          <div class="row"><span class="row-label">3ª revisión</span><span class="row-val">dic-2026</span></div>
+          <div class="row"><span class="row-label">4ª revisión</span><span class="row-val">mar-2027</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cuarto de Monturas -->
+  <div class="proto-section nut" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🐎</span>
+      <div style="flex:1"><div class="proto-name">Cuarto de Monturas + Caballerizas</div><div style="font-size:11px;color:var(--muted)">Equipo de charrería · sillas · frenos · riendas · instalaciones equinas</div></div>
+      <span class="tag tag-a">Inventario pendiente</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Cuarto de Monturas — Inventario a levantar</div>
+          <div class="proto-item"><span class="proto-item-icon">🐴</span><div><div class="proto-item-title">Sillas de montar</div><div class="proto-item-desc">Cantidad, estado, asignación por vaquero — 🔄 inventariar</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🔗</span><div><div class="proto-item-title">Frenos y riendas</div><div class="proto-item-desc">Tipo, cantidad, estado — 🔄 inventariar</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🧰</span><div><div class="proto-item-title">Equipo complementario</div><div class="proto-item-desc">Cinturones, tapis, protectores, lazos, cabronas — 🔄 inventariar</div></div></div>
+          <div style="margin-top:10px;font-size:12px;color:var(--muted)"><b>Mantenimiento cuarto de monturas:</b> limpieza mensual con cera/grasa para cuero, revisión de costuras y hebillas, almacenaje en seco (humedad deteriora el cuero).</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Caballerizas — Protocolo de mantenimiento</div>
+          <div class="proto-item"><span class="proto-item-icon">🏠</span><div><div class="proto-item-title">Limpieza diaria</div><div class="proto-item-desc">Retiro de estiércol y cama sucia · cambio de agua fresca · revisión de bebederos</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🌾</span><div><div class="proto-item-title">Alimentación</div><div class="proto-item-desc">Heno/forraje 2 veces/día · suplemento según caballo · bitácora de consumo</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🦶</span><div><div class="proto-item-title">Herraje</div><span class="ph" style="font-size:11px">🔄 frecuencia y herrador responsable</span></div></div>
+          <div class="row" style="margin-top:8px"><span class="row-label">Número de caballos</span><span class="ph">🔄 conteo</span></div>
+          <div class="row"><span class="row-label">m² caballerizas</span><span class="ph">🔄 medir</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bodegas de Alimentos -->
+  <div class="proto-section nut" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🌽</span>
+      <div style="flex:1"><div class="proto-name">Bodegas de Alimentos 1 · 2 · 3 · 4</div><div style="font-size:11px;color:var(--muted)">Bodega 3 = suplemento proteico · sistema de punto de reorden · integrado al flujo de efectivo</div></div>
+      <span class="tag tag-g">Sistema activo</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="rule">📦 BODEGA 3 es la bodega de control de suplemento. El inventario se actualiza cada vez que entra o sale producto. Si "Días de inventario" baja de 15 → PEDIR inmediatamente.</div>
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:10px">Mapa de bodegas de alimentos</div>
+          <div style="background:var(--surface);border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+            <table style="width:100%;font-size:12px;border-collapse:collapse">
+              <thead><tr style="background:var(--brand);color:#fff"><th style="padding:8px;text-align:left">Bodega</th><th style="padding:8px;text-align:left">Contenido</th><th style="padding:8px;text-align:center">m²</th><th style="padding:8px;text-align:center">Estado</th></tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px;font-weight:700">Bodega 1</td><td style="padding:8px"><span class="ph">🔄 definir con Julio</span></td><td style="padding:8px;text-align:center"><span class="ph">🔄</span></td><td style="padding:8px;text-align:center"><span class="tag tag-a">Levantar</span></td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px;font-weight:700">Bodega 2</td><td style="padding:8px"><span class="ph">🔄 definir con Julio</span></td><td style="padding:8px;text-align:center"><span class="ph">🔄</span></td><td style="padding:8px;text-align:center"><span class="tag tag-a">Levantar</span></td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:#f0fdf4"><td style="padding:8px;font-weight:700;color:var(--green)">Bodega 3 ⭐</td><td style="padding:8px;color:var(--green)"><b>Suplemento proteico</b> (agostadero + creep)</td><td style="padding:8px;text-align:center"><span class="ph">🔄</span></td><td style="padding:8px;text-align:center"><span class="tag tag-g">Control activo</span></td></tr>
+                <tr><td style="padding:8px;font-weight:700">Bodega 4</td><td style="padding:8px"><span class="ph">🔄 definir con Julio</span></td><td style="padding:8px;text-align:center"><span class="ph">🔄</span></td><td style="padding:8px;text-align:center"><span class="tag tag-a">Levantar</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:8px">⭐ Bodega 3 — Sistema de control de suplemento</div>
+          <div style="background:#f0fdf4;border-radius:8px;padding:12px;border:1px solid #bbf7d0">
+            <div class="row"><span class="row-label">Producto</span><span class="row-val">Suplemento proteico agostadero (Dr. David)</span></div>
+            <div class="row"><span class="row-label">Dosis vaca parida</span><span class="row-val">2 kg cada 3 días = 0.667 kg/día/cab</span></div>
+            <div class="row"><span class="row-label">Dosis vaca orra</span><span class="row-val">1 kg cada 3 días = 0.333 kg/día/cab</span></div>
+            <div class="row"><span class="row-label">Costo referencia (abr-2024)</span><span class="row-val">$7.33/kg mezcla — actualizar</span></div>
+            <div class="row"><span class="row-label">Punto de reorden</span><span class="row-val" style="color:var(--amber);font-weight:700">15 días de inventario</span></div>
+            <div class="row"><span class="row-label">Stock actual (kg)</span><span class="ph">🔄 conteo Julio 22-jun</span></div>
+            <div class="row"><span class="row-label">Consumo diario actual (kg)</span><span class="ph">🔄 calcular con cabezas reales</span></div>
+            <div class="row"><span class="row-label">Proveedor</span><span class="row-val">Bovilac Namiquipa — cotizar precio actual</span></div>
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:var(--muted)">Fórmula de control: <b>Días de inventario = Stock (kg) ÷ Consumo diario (kg/día)</b>. Si ≤ 15 días → generar orden de compra → reflejar en flujo de efectivo.</div>
+        </div>
+      </div>
+
+      <!-- Tabla de inventario de insumos -->
+      <div style="margin-top:16px;font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">📊 Control de inventario — Insumos principales (Catálogo Dr. David Domínguez · precios abr-2024)</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Insumo</th><th>Tipo</th><th>$/kg (ref.)</th><th>Stock actual (kg)</th><th>Consumo kg/día</th><th>Días de inv.</th><th>Reorden (días)</th><th>¿Pedir?</th></tr></thead>
+        <tbody>
+          <tr><td>Maíz rolado</td><td>Grano</td><td>$6.17</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td style="text-align:center">15</td><td class="ph" style="text-align:center">—</td></tr>
+          <tr><td>Harinolina</td><td>Proteína</td><td>$12.12</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td style="text-align:center">15</td><td class="ph" style="text-align:center">—</td></tr>
+          <tr><td>Grano seco destilado (DDG)</td><td>Proteína</td><td>$8.52</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td style="text-align:center">15</td><td class="ph" style="text-align:center">—</td></tr>
+          <tr><td>Dulce</td><td>Energético</td><td>$7.50</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td style="text-align:center">15</td><td class="ph" style="text-align:center">—</td></tr>
+          <tr><td>Mineral Prospector</td><td>Mineral</td><td>$19.60</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td style="text-align:center">15</td><td class="ph" style="text-align:center">—</td></tr>
+          <tr><td>Mineral Meat Builder</td><td>Mineral</td><td>$13.50</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td style="text-align:center">15</td><td class="ph" style="text-align:center">—</td></tr>
+          <tr><td>Heno de alfalfa (1a)</td><td>Forraje</td><td>$6.00</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td style="text-align:center">15</td><td class="ph" style="text-align:center">—</td></tr>
+          <tr><td>Rastrojo maíz molido</td><td>Forraje</td><td>$1.15</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td style="text-align:center">15</td><td class="ph" style="text-align:center">—</td></tr>
+          <tr><td>Urea</td><td>NNP</td><td>$10.00</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td style="text-align:center">15</td><td class="ph" style="text-align:center">—</td></tr>
+          <tr><td>Sal común</td><td>Mineral</td><td>$2.00</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td style="text-align:center">15</td><td class="ph" style="text-align:center">—</td></tr>
+        </tbody>
+      </table></div>
+      <div style="margin-top:6px;font-size:11px;color:var(--muted)">Precios de referencia: Dr. David Domínguez, abr-2024. Actualizar con cotización vigente de Bovilac Namiquipa y proveedores actuales.</div>
+    </div>
+  </div>
+
+  <!-- Inventario de Medicamentos -->
+  <div class="proto-section san" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">💊</span>
+      <div style="flex:1"><div class="proto-name">Inventario de Medicamentos y Biológicos</div><div style="font-size:11px;color:var(--muted)">Vacunas · antiparasitarios · MultiMin 90 · antibióticos · punto de reorden integrado a flujo de efectivo</div></div>
+      <span class="tag tag-a">Inventario pendiente</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="rule">⚕️ REGLA: Nunca bajar de 15 días de inventario en vacunas y antiparasitarios. Las vacunas requieren cadena de frío — verificar temperatura del refrigerador al momento del inventario.</div>
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Categorías de medicamentos</div>
+          <div class="proto-item"><span class="proto-item-icon">🦠</span><div><div class="proto-item-title">Biológicos / Vacunas</div><div class="proto-item-desc">Viral (IBR, BVD, PI3, BRSV) · Clostridial · Vacunas específicas (ántrax si aplica) — requieren refrigeración 2-8°C</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">💎</span><div><div class="proto-item-title">Multiminerales inyectables</div><div class="proto-item-desc">MultiMin 90 (Zn, Cu, Mn, Se) — 2 aplicaciones/año · unidad: frasco</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🐛</span><div><div class="proto-item-title">Antiparasitarios</div><div class="proto-item-desc">Ivermectinas, albendazoles, otros — 2 aplicaciones/año · unidad: frasco o sobre</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">💉</span><div><div class="proto-item-title">Antibióticos</div><div class="proto-item-desc">Reserva para tratamientos: penicilina, oxitetraciclina, florfenicol, etc. · uso bajo prescripción veterinaria</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🩹</span><div><div class="proto-item-title">Insumos de aplicación</div><div class="proto-item-desc">Jeringas, agujas (calibres 18, 20), guantes, yodo, alcohol, algodón, tubos de CIDR</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--amber);margin-bottom:8px">🔄 Inventario a levantar con Julio</div>
+          <div style="background:var(--surface);border-radius:8px;padding:10px;border:1px solid var(--border)">
+            <table style="width:100%;font-size:11px;border-collapse:collapse">
+              <thead><tr style="background:var(--brand);color:#fff"><th style="padding:6px;text-align:left">Producto</th><th style="padding:6px;text-align:center">Unidad</th><th style="padding:6px;text-align:center">Stock</th><th style="padding:6px;text-align:center">Reorden</th></tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px">Vacuna Viral (IBR/BVD)</td><td style="padding:6px;text-align:center">dosis</td><td class="ph" style="padding:6px;text-align:center">🔄</td><td style="padding:6px;text-align:center">≥ 15d</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px">Vacuna Clostridial</td><td style="padding:6px;text-align:center">dosis</td><td class="ph" style="padding:6px;text-align:center">🔄</td><td style="padding:6px;text-align:center">≥ 15d</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px">MultiMin 90</td><td style="padding:6px;text-align:center">mL/frasco</td><td class="ph" style="padding:6px;text-align:center">🔄</td><td style="padding:6px;text-align:center">≥ 15d</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px">Ivermectina</td><td style="padding:6px;text-align:center">mL/frasco</td><td class="ph" style="padding:6px;text-align:center">🔄</td><td style="padding:6px;text-align:center">≥ 15d</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px">Oxitetraciclina LA</td><td style="padding:6px;text-align:center">mL/frasco</td><td class="ph" style="padding:6px;text-align:center">🔄</td><td style="padding:6px;text-align:center">1 fco reserva</td></tr>
+                <tr><td style="padding:6px">Jeringas + agujas (surtido)</td><td style="padding:6px;text-align:center">pieza</td><td class="ph" style="padding:6px;text-align:center">🔄</td><td style="padding:6px;text-align:center">50 pzas</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:8px;font-size:11px;color:var(--muted)">Cadena de frío: refrigerador dedicado · revisar temperatura 2 veces/semana · registrar en bitácora.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ RED HIDRÁULICA ══ -->
+  <div style="margin:22px 0 8px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--border);padding-bottom:6px">💧 Red Hidráulica</div>
+  <div class="alert b" style="margin-bottom:10px"><span>💡</span><span class="alert-text">Valor de red hidráulica: <b>$6,926,450</b> (balance 2025). Los km de tubería por diámetro están PENDIENTES de levantamiento físico con Julio. El valor en pesos por diámetro sí existe en el balance.</span></div>
+
+  <div class="proto-section eco" style="margin-top:0">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🗺️</span>
+      <div style="flex:1"><div class="proto-name">Mapa de Red Hidráulica — Pilas, Bebederos y Tubería</div><div style="font-size:11px;color:var(--muted)">9 pilas · 17 bebederos · 1 filtro · tubería 3 diámetros · $6.9M en activos</div></div>
+      <span class="tag tag-b">Inventario parcial</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">9 Pilas — Inventario de almacenamiento</div>
+          <div style="background:var(--surface);border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+            <table style="width:100%;font-size:12px;border-collapse:collapse">
+              <thead><tr style="background:var(--blue);color:#fff"><th style="padding:8px;text-align:left">Pila</th><th style="padding:8px;text-align:center">Capacidad (L)</th><th style="padding:8px;text-align:center">Estado</th></tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px">💧 Millón</td><td class="ph" style="padding:8px;text-align:center">🔄 medir</td><td style="padding:8px;text-align:center"><span class="tag tag-a">Pendiente</span></td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px">💧 Mesa Blanca</td><td class="ph" style="padding:8px;text-align:center">🔄 medir</td><td style="padding:8px;text-align:center"><span class="tag tag-a">Pendiente</span></td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px">💧 Cuadrada Casa</td><td class="ph" style="padding:8px;text-align:center">🔄 medir</td><td style="padding:8px;text-align:center"><span class="tag tag-a">Pendiente</span></td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px">💧 Rufas</td><td class="ph" style="padding:8px;text-align:center">🔄 medir</td><td style="padding:8px;text-align:center"><span class="tag tag-a">Pendiente</span></td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px">💧 Parrita</td><td class="ph" style="padding:8px;text-align:center">🔄 medir</td><td style="padding:8px;text-align:center"><span class="tag tag-a">Pendiente</span></td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px">💧 Puerto</td><td class="ph" style="padding:8px;text-align:center">🔄 medir</td><td style="padding:8px;text-align:center"><span class="tag tag-a">Pendiente</span></td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px">💧 Sta. Lucía</td><td class="ph" style="padding:8px;text-align:center">🔄 medir</td><td style="padding:8px;text-align:center"><span class="tag tag-a">Pendiente</span></td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px">💧 Alamito</td><td class="ph" style="padding:8px;text-align:center">🔄 medir</td><td style="padding:8px;text-align:center"><span class="tag tag-a">Pendiente</span></td></tr>
+                <tr><td style="padding:8px">💧 Triángulo</td><td class="ph" style="padding:8px;text-align:center">🔄 medir</td><td style="padding:8px;text-align:center"><span class="tag tag-a">Pendiente</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:8px;font-size:11px;color:var(--muted)">+ 17 bebederos · estado físico pendiente de inspección con Julio · + 1 filtro (ubicación y estado pendiente)</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Tubería — Inventario por diámetro</div>
+          <div style="background:var(--surface);border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+            <table style="width:100%;font-size:12px;border-collapse:collapse">
+              <thead><tr style="background:var(--blue);color:#fff"><th style="padding:8px">Diámetro</th><th style="padding:8px;text-align:right">Valor en balance</th><th style="padding:8px;text-align:center">Km físicos</th></tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px;font-weight:700">Tubería 3"</td><td style="padding:8px;text-align:right">$1,147,500</td><td class="ph" style="padding:8px;text-align:center">🔄 medir</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px;font-weight:700">Tubería 2"</td><td style="padding:8px;text-align:right">$2,766,250</td><td class="ph" style="padding:8px;text-align:center">🔄 medir</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px;font-weight:700">Tubería 1"</td><td style="padding:8px;text-align:right">$853,600</td><td class="ph" style="padding:8px;text-align:center">🔄 medir</td></tr>
+                <tr style="background:#f0f9ff"><td style="padding:8px;font-weight:700;color:var(--blue)">Total red</td><td style="padding:8px;text-align:right;font-weight:700;color:var(--blue)">$4,767,350</td><td class="ph" style="padding:8px;text-align:center">🔄</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:10px;font-size:12px;font-weight:700;color:var(--brand);margin-bottom:6px">Equipos de bombeo</div>
+          <div class="row"><span class="row-label">Bomba Lister 2 pistones</span><span class="row-val">Motor diésel · pozo principal</span></div>
+          <div class="row"><span class="row-label">Bomba solar</span><span class="row-val">Energía fotovoltaica · ubicación 🔄</span></div>
+          <div class="row"><span class="row-label">Motor de pozo</span><span class="row-val">Eléctrico · profundidad 🔄</span></div>
+          <div class="row"><span class="row-label">Cuarto de rebombeo</span><span class="row-val">Ubicación: corrales</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOP Termofusión -->
+  <div class="proto-section eco" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🔥</span>
+      <div style="flex:1"><div class="proto-name">SOP — Termofusión de Tubería (Polietileno)</div><div style="font-size:11px;color:var(--muted)">Protocolo de unión de tuberías en campo · reparación y extensión de la red</div></div>
+      <span class="tag tag-b">Protocolo operativo</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="rule">⚠️ La termofusión mal ejecutada causa fugas ocultas bajo tierra que pueden tardar meses en detectarse y dañar la red. Solo personal capacitado con equipo calibrado debe realizar uniones.</div>
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Procedimiento de termofusión</div>
+          <div class="proto-item"><span class="proto-item-icon">1️⃣</span><div><div class="proto-item-title">Preparación</div><div class="proto-item-desc">Cortar la tubería con corte recto (90°). Limpiar los extremos con alcohol. Verificar que la máquina termofusionadora esté calibrada al diámetro correcto.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">2️⃣</span><div><div class="proto-item-title">Temperatura y presión</div><div class="proto-item-desc">Temperatura del plato: <b>210-220°C</b> para PE (polietileno). Presión de fusión según tabla por diámetro (ver abajo). Nunca fusionar con temperatura ambiente bajo 5°C sin precauciones extra.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">3️⃣</span><div><div class="proto-item-title">Fusión</div><div class="proto-item-desc">Calentar ambos extremos simultáneamente en el plato. Tiempo de calentamiento según diámetro. Retirar el plato y unir los extremos con presión constante en 3-4 segundos.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">4️⃣</span><div><div class="proto-item-title">Enfriamiento</div><div class="proto-item-desc">Mantener presión de unión por el tiempo de enfriamiento recomendado (según diámetro). NO soltar antes de tiempo — es la causa #1 de fugas.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">5️⃣</span><div><div class="proto-item-title">Prueba de presión</div><div class="proto-item-desc">Antes de enterrar: llenar con agua y aplicar presión por 10-15 minutos. Verificar que no haya fugas en la unión antes de cubrir.</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Parámetros por diámetro (referencia)</div>
+          <div style="background:var(--surface);border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+            <table style="width:100%;font-size:11px;border-collapse:collapse">
+              <thead><tr style="background:var(--blue);color:#fff"><th style="padding:7px">Diámetro</th><th style="padding:7px;text-align:center">Temp. plato</th><th style="padding:7px;text-align:center">Calent. (seg)</th><th style="padding:7px;text-align:center">Enfr. (seg)</th></tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">1" (25 mm)</td><td style="padding:7px;text-align:center">210°C</td><td style="padding:7px;text-align:center">5 seg</td><td style="padding:7px;text-align:center">10 seg</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">2" (50 mm)</td><td style="padding:7px;text-align:center">215°C</td><td style="padding:7px;text-align:center">12 seg</td><td style="padding:7px;text-align:center">20 seg</td></tr>
+                <tr><td style="padding:7px">3" (75 mm)</td><td style="padding:7px;text-align:center">220°C</td><td style="padding:7px;text-align:center">18 seg</td><td style="padding:7px;text-align:center">30 seg</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:10px;font-size:12px;font-weight:700;color:var(--brand);margin-bottom:6px">Cálculo de presión hidráulica</div>
+          <div style="background:#eff6ff;border-radius:8px;padding:10px;font-size:12px">
+            <div style="font-weight:700;color:var(--blue);margin-bottom:6px">Fórmula básica — Presión estática</div>
+            <div style="font-family:monospace;background:#fff;padding:8px;border-radius:4px;margin-bottom:8px;font-size:13px"><b>P (m.c.a.) = Desnivel (m)</b><br><b>P (kg/cm²) = Desnivel (m) ÷ 10</b><br><b>P (PSI) = Desnivel (m) × 1.42</b></div>
+            <div style="color:var(--muted);font-size:11px">Ejemplo: pila a 50 m de altura sobre el bebedero → P = 50 m.c.a. = 5 kg/cm² = 71 PSI. La tubería de 1" PE aguanta hasta 8 kg/cm²; la de 2" hasta 10 kg/cm². Verificar ratings con proveedor local.</div>
+            <div class="row" style="margin-top:8px"><span class="row-label">Desnivel pila → bebedero más bajo</span><span class="ph">🔄 levantar topografía</span></div>
+            <div class="row"><span class="row-label">Presión máxima de trabajo</span><span class="ph">🔄 calcular con Julio</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CUARTO DE GASOLINA ══ -->
+  <div style="margin:22px 0 8px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--border);padding-bottom:6px">⛽ Cuarto de Gasolina y Combustibles</div>
+  <div class="proto-section eco" style="margin-top:0">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">⛽</span>
+      <div style="flex:1"><div class="proto-name">Control de Combustibles — Diesel y Gasolina</div><div style="font-size:11px;color:var(--muted)">Inventario · consumo por unidad · abastecimiento y bitácora</div></div>
+      <span class="tag tag-a">Inventario pendiente</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Protocolo de control</div>
+          <div class="proto-item"><span class="proto-item-icon">📋</span><div><div class="proto-item-title">Registro de salidas</div><div class="proto-item-desc">Cada surtida de combustible se anota: fecha, unidad, litros, km/hrs actuales, responsable. Sin registro = sin combustible.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">📊</span><div><div class="proto-item-title">Control de inventario</div><div class="proto-item-desc">Medición del tanque (dipstick o medidor) cada lunes. Comparar contra total registrado en bitácora. Diferencias > 5% → investigar.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🛒</span><div><div class="proto-item-title">Punto de reorden</div><div class="proto-item-desc">Al llegar al 25% del tanque → generar orden de compra de combustible → reflejar en flujo de efectivo de la semana.</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--amber);margin-bottom:8px">🔄 Pendiente con Julio</div>
+          <div class="row"><span class="row-label">Capacidad tanque diesel (L)</span><span class="ph">🔄 medir</span></div>
+          <div class="row"><span class="row-label">Capacidad tanque gasolina (L)</span><span class="ph">🔄 medir</span></div>
+          <div class="row"><span class="row-label">Stock actual (L)</span><span class="ph">🔄 dipstick</span></div>
+          <div class="row"><span class="row-label">Consumo promedio semanal</span><span class="ph">🔄 calcular con bitácora</span></div>
+          <div class="row"><span class="row-label">Proveedor / fletador</span><span class="ph">🔄 confirmar</span></div>
+          <div class="row"><span class="row-label">Precio actual diesel/gasolina</span><span class="ph">🔄 cotizar</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PROYECCIÓN ANUAL DE DEMANDA + CURVA DE PRECIOS ══ -->
+  <div style="margin:22px 0 8px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--border);padding-bottom:6px">📈 Proyección Anual de Insumos y Curva de Precios</div>
+
+  <div class="proto-section eco" style="margin-top:0">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🧮</span>
+      <div style="flex:1"><div class="proto-name">Demanda Anual Calculada — Suplemento y Creep</div><div style="font-size:11px;color:var(--muted)">Con fórmulas Dr. David · basado en hato cría comercial · 275 días de suplementación</div></div>
+      <span class="tag tag-g">Cálculo con datos reales</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="alert b" style="margin-bottom:14px"><span>📌</span><span class="alert-text">Supuestos: 282 vacas en suplementación (seca ~oct–16-jul, ~275 días); 82% preñez = ~231 becerras paridas → ~160 paridas promedio en período de suplementación; ~122 orras. Creep feeding: ~231 becerros × 90 días = desde 3 meses hasta destete. Precios: Dr. David abr-2024 — POR ACTUALIZAR con Bovilac.</span></div>
+
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:10px">Suplemento Agostadero (fórmula Dr. David)</div>
+          <div style="background:var(--surface);border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+            <table style="width:100%;font-size:12px;border-collapse:collapse">
+              <thead><tr style="background:var(--brand);color:#fff"><th style="padding:7px;text-align:left">Ingrediente</th><th style="padding:7px;text-align:right">kg/ton</th><th style="padding:7px;text-align:right">$/kg (abr-24)</th><th style="padding:7px;text-align:right">$/ton</th></tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Maíz rolado</td><td style="padding:7px;text-align:right">330</td><td style="padding:7px;text-align:right">$6.17</td><td style="padding:7px;text-align:right">$2,036</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Harinolina</td><td style="padding:7px;text-align:right">147</td><td style="padding:7px;text-align:right">$12.12</td><td style="padding:7px;text-align:right">$1,782</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">DDG</td><td style="padding:7px;text-align:right">117</td><td style="padding:7px;text-align:right">$8.52</td><td style="padding:7px;text-align:right">$997</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Dulce</td><td style="padding:7px;text-align:right">33</td><td style="padding:7px;text-align:right">$7.50</td><td style="padding:7px;text-align:right">$248</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Mineral Prospector</td><td style="padding:7px;text-align:right">60</td><td style="padding:7px;text-align:right">$19.60</td><td style="padding:7px;text-align:right">$1,176</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Urea</td><td style="padding:7px;text-align:right">24</td><td style="padding:7px;text-align:right">$10.00</td><td style="padding:7px;text-align:right">$240</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Sebo</td><td style="padding:7px;text-align:right">40</td><td style="padding:7px;text-align:right">$9.00</td><td style="padding:7px;text-align:right">$360</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Sal común</td><td style="padding:7px;text-align:right">250</td><td style="padding:7px;text-align:right">$2.00</td><td style="padding:7px;text-align:right">$500</td></tr>
+                <tr style="background:#f0f9ff"><td style="padding:7px;font-weight:700;color:var(--blue)">TOTAL (1 ton)</td><td style="padding:7px;text-align:right;font-weight:700">1,001 kg</td><td style="padding:7px;text-align:right">—</td><td style="padding:7px;text-align:right;font-weight:700;color:var(--blue)">$7,339</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:var(--muted)">Costo referencia: <b>$7.33/kg mezcla</b> (abr-2024). MS 88% · PC 20% · EM 2.3 Mcal/kg MS.</div>
+
+          <div style="margin-top:14px;font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Creep Feeding (fórmula Dr. David)</div>
+          <div style="background:var(--surface);border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+            <table style="width:100%;font-size:12px;border-collapse:collapse">
+              <thead><tr style="background:var(--brand);color:#fff"><th style="padding:7px;text-align:left">Ingrediente</th><th style="padding:7px;text-align:right">kg/ton</th><th style="padding:7px;text-align:right">$/kg (abr-24)</th><th style="padding:7px;text-align:right">$/ton</th></tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Maíz rolado</td><td style="padding:7px;text-align:right">505</td><td style="padding:7px;text-align:right">$6.17</td><td style="padding:7px;text-align:right">$3,116</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Harinolina</td><td style="padding:7px;text-align:right">415</td><td style="padding:7px;text-align:right">$12.12</td><td style="padding:7px;text-align:right">$5,030</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Mineral Meat Builder</td><td style="padding:7px;text-align:right">30</td><td style="padding:7px;text-align:right">$13.50</td><td style="padding:7px;text-align:right">$405</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Melaza</td><td style="padding:7px;text-align:right">50</td><td style="padding:7px;text-align:right">$8.00</td><td style="padding:7px;text-align:right">$400</td></tr>
+                <tr style="background:#f0f9ff"><td style="padding:7px;font-weight:700;color:var(--blue)">TOTAL (1 ton)</td><td style="padding:7px;text-align:right;font-weight:700">1,000 kg</td><td style="padding:7px;text-align:right">—</td><td style="padding:7px;text-align:right;font-weight:700;color:var(--blue)">$8,951</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:8px;font-size:11px;color:var(--muted)">Costo referencia: <b>$8.95/kg mezcla</b> (abr-2024). Dosis 0.5 kg/becerro/día. MS 86% · PC 22% · EM 2.8 Mcal/kg.</div>
+        </div>
+
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:10px">📊 Proyección de Demanda Anual — Ciclo 2026</div>
+          <div style="background:#f0fdf4;border-radius:8px;padding:12px;border:1px solid #bbf7d0;margin-bottom:12px">
+            <div style="font-weight:700;color:var(--green);margin-bottom:10px;font-size:12px">SUPLEMENTO AGOSTADERO — 275 días</div>
+            <div class="row"><span class="row-label">Vacas paridas (~160 avg)</span><span class="row-val">160 × 0.667 kg/día = 107 kg/día</span></div>
+            <div class="row"><span class="row-label">Vacas orras (~122)</span><span class="row-val">122 × 0.333 kg/día = 41 kg/día</span></div>
+            <div class="row"><span class="row-label">Consumo diario total</span><span class="row-val" style="font-weight:700">~148 kg/día</span></div>
+            <div class="row"><span class="row-label">Consumo temporada (275 días)</span><span class="row-val" style="font-weight:700">~40,700 kg ≈ <b>40.7 ton</b></span></div>
+            <div class="row" style="border-top:1px solid #bbf7d0;padding-top:6px;margin-top:6px"><span class="row-label">Costo referencia (abr-2024)</span><span class="row-val" style="color:var(--green);font-weight:700">~$298,331/temporada</span></div>
+            <div style="margin-top:8px">
+              <div style="font-size:11px;font-weight:700;color:var(--brand);margin-bottom:4px">Desglose por ingrediente (40.7 ton mezcla):</div>
+              <div class="row"><span class="row-label">Maíz rolado (33%)</span><span class="row-val">13.4 ton · $82,680</span></div>
+              <div class="row"><span class="row-label">Sal común (25%)</span><span class="row-val">10.2 ton · $20,375</span></div>
+              <div class="row"><span class="row-label">Harinolina (14.7%)</span><span class="row-val">5.98 ton · $72,490</span></div>
+              <div class="row"><span class="row-label">Mineral Prospector (6%)</span><span class="row-val">2.44 ton · $47,909</span></div>
+              <div class="row"><span class="row-label">DDG (11.7%)</span><span class="row-val">4.76 ton · $40,577</span></div>
+            </div>
+          </div>
+          <div style="background:#eff6ff;border-radius:8px;padding:12px;border:1px solid #bfdbfe">
+            <div style="font-weight:700;color:var(--blue);margin-bottom:10px;font-size:12px">CREEP FEEDING — 90 días (~231 becerros)</div>
+            <div class="row"><span class="row-label">Becerros (~231)</span><span class="row-val">231 × 0.5 kg/día = 115.5 kg/día</span></div>
+            <div class="row"><span class="row-label">Consumo total (90 días)</span><span class="row-val" style="font-weight:700">~10,395 kg ≈ <b>10.4 ton</b></span></div>
+            <div class="row" style="border-top:1px solid #bfdbfe;padding-top:6px;margin-top:6px"><span class="row-label">Costo referencia (abr-2024)</span><span class="row-val" style="color:var(--blue);font-weight:700">~$93,036/temporada</span></div>
+            <div style="margin-top:8px">
+              <div style="font-size:11px;font-weight:700;color:var(--brand);margin-bottom:4px">Desglose (10.4 ton mezcla):</div>
+              <div class="row"><span class="row-label">Harinolina (41.5%)</span><span class="row-val">4.31 ton · $52,273</span></div>
+              <div class="row"><span class="row-label">Maíz rolado (50.5%)</span><span class="row-val">5.25 ton · $32,393</span></div>
+              <div class="row"><span class="row-label">Mineral Meat Builder (3%)</span><span class="row-val">0.312 ton · $4,212</span></div>
+              <div class="row"><span class="row-label">Melaza (5%)</span><span class="row-val">0.52 ton · $4,158</span></div>
+            </div>
+          </div>
+          <div style="background:#fff8f0;border-radius:8px;padding:12px;border:1px solid #fed7aa;margin-top:10px">
+            <div style="font-weight:700;color:var(--amber);margin-bottom:6px;font-size:12px">💰 RESUMEN COSTO ANUAL INSUMOS (referencia abr-2024)</div>
+            <div class="row"><span class="row-label">Suplemento agostadero</span><span class="row-val">$298,331</span></div>
+            <div class="row"><span class="row-label">Creep feeding</span><span class="row-val">$93,036</span></div>
+            <div class="row" style="border-top:1px solid #fed7aa;padding-top:6px;margin-top:4px"><span class="row-label" style="font-weight:700">TOTAL insumos cría comercial</span><span class="row-val" style="font-weight:700;color:var(--amber)">~$391,367/año</span></div>
+            <div style="margin-top:6px;font-size:11px;color:var(--muted)">Equivalente a ~$1,387/vaca/año en suplementos · No incluye mineral y desparasitaciones · POR ACTUALIZAR con precios vigentes Bovilac Namiquipa.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Curva de precios y análisis de compra por volumen -->
+  <div class="proto-section eco" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">📉</span>
+      <div style="flex:1"><div class="proto-name">Análisis de Compra por Volumen — Curva de Precios</div><div style="font-size:11px;color:var(--muted)">¿Conviene comprar a granel? · ahorro potencial · cantidad óptima de pedido vs costo de almacenamiento</div></div>
+      <span class="tag tag-b">Herramienta de compras</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="alert a" style="margin-bottom:14px"><span>💡</span><span class="alert-text">Los insumos con mayor peso en el presupuesto anual son <b>harinolina, maíz rolado y Mineral Prospector</b>. Son los candidatos para negociar precio por volumen con Bovilac Namiquipa. El análisis de conveniencia depende de: descuento por volumen, costo de almacenamiento en bodega, riesgo de humedad/plagas, y disponibilidad de caja.</span></div>
+
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:10px">Marco de análisis de compra anticipada</div>
+          <div class="proto-item"><span class="proto-item-icon">1️⃣</span><div><div class="proto-item-title">Calcular demanda anual por insumo</div><div class="proto-item-desc">Con las fórmulas de David y el hato real, ya conocemos la demanda de cada ingrediente por temporada (ver tabla de arriba). Esto define el techo de compra útil.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">2️⃣</span><div><div class="proto-item-title">Cotizar precio base vs precio por volumen</div><div class="proto-item-desc">Llamar a Bovilac Namiquipa y otros proveedores. Pedir precio unitario para 1 ton, 5 ton, 10 ton y 20 ton. El diferencial es el beneficio bruto de comprar a granel.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">3️⃣</span><div><div class="proto-item-title">Calcular costo de almacenamiento</div><div class="proto-item-desc">Espacio en bodega (m²), pérdida por humedad o plagas, costo financiero del capital inmovilizado (tasa de referencia: costo de oportunidad del dinero ≈ TIIE + spread).</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">4️⃣</span><div><div class="proto-item-title">Comparar: ahorro bruto vs costo de almacenar</div><div class="proto-item-desc">Si el descuento por volumen supera el costo de almacenamiento + riesgo de merma, la compra anticipada conviene. Si no, mejor pedidos frecuentes con reorden a 15 días.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">5️⃣</span><div><div class="proto-item-title">Temporada de compra ventajosa</div><div class="proto-item-desc">Maíz y granos bajan de precio en el período oct–dic (post-cosecha). Comprar reserva de maíz rolado en nov puede generar ahorros de 8–15%. Harinolina varía con soya internacional — monitorear cada mes.</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:10px">Tabla de candidatos a compra por volumen</div>
+          <div style="background:var(--surface);border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+            <table style="width:100%;font-size:11px;border-collapse:collapse">
+              <thead><tr style="background:var(--brand);color:#fff"><th style="padding:7px;text-align:left">Insumo</th><th style="padding:7px;text-align:right">Demanda/año</th><th style="padding:7px;text-align:right">$/kg (ref)</th><th style="padding:7px;text-align:right">Gasto anual</th><th style="padding:7px;text-align:center">Volatilidad</th><th style="padding:7px;text-align:center">Bodega</th></tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border);background:#fefce8"><td style="padding:7px;font-weight:700">Maíz rolado</td><td style="padding:7px;text-align:right">18.7 ton</td><td style="padding:7px;text-align:right">$6.17</td><td style="padding:7px;text-align:right">$115,079</td><td style="padding:7px;text-align:center"><span class="tag tag-a">Media</span></td><td style="padding:7px;text-align:center">Grano seco · OK</td></tr>
+                <tr style="border-bottom:1px solid var(--border);background:#fefce8"><td style="padding:7px;font-weight:700">Harinolina</td><td style="padding:7px;text-align:right">10.3 ton</td><td style="padding:7px;text-align:right">$12.12</td><td style="padding:7px;text-align:right">$124,836</td><td style="padding:7px;text-align:center"><span class="tag tag-r">Alta</span></td><td style="padding:7px;text-align:center">Seco · OK</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px;font-weight:700">Mineral Prospector</td><td style="padding:7px;text-align:right">2.44 ton</td><td style="padding:7px;text-align:right">$19.60</td><td style="padding:7px;text-align:right">$47,824</td><td style="padding:7px;text-align:center"><span class="tag tag-g">Baja</span></td><td style="padding:7px;text-align:center">Sacos · OK</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px;font-weight:700">DDG</td><td style="padding:7px;text-align:right">4.76 ton</td><td style="padding:7px;text-align:right">$8.52</td><td style="padding:7px;text-align:right">$40,555</td><td style="padding:7px;text-align:center"><span class="tag tag-a">Media</span></td><td style="padding:7px;text-align:center">Seco · OK</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px;font-weight:700">Sal común</td><td style="padding:7px;text-align:right">10.2 ton</td><td style="padding:7px;text-align:right">$2.00</td><td style="padding:7px;text-align:right">$20,400</td><td style="padding:7px;text-align:center"><span class="tag tag-g">Baja</span></td><td style="padding:7px;text-align:center">Sacos · OK</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px;font-weight:700">Urea</td><td style="padding:7px;text-align:right">0.98 ton</td><td style="padding:7px;text-align:right">$10.00</td><td style="padding:7px;text-align:right">$9,760</td><td style="padding:7px;text-align:center"><span class="tag tag-g">Baja</span></td><td style="padding:7px;text-align:center">Sacos · <span style="color:var(--red)">⚠️ tóxica</span></td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px;font-weight:700">Sebo</td><td style="padding:7px;text-align:right">1.63 ton</td><td style="padding:7px;text-align:right">$9.00</td><td style="padding:7px;text-align:right">$14,670</td><td style="padding:7px;text-align:center"><span class="tag tag-a">Media</span></td><td style="padding:7px;text-align:center">Tambos · OK</td></tr>
+                <tr style="background:#f0fdf4"><td style="padding:7px;font-weight:700;color:var(--green)">TOTAL</td><td style="padding:7px;text-align:right">—</td><td style="padding:7px;text-align:right">—</td><td style="padding:7px;text-align:right;font-weight:700;color:var(--green)">$373,124</td><td style="padding:7px;text-align:center">—</td><td style="padding:7px">—</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:12px;background:#fff8f0;border-radius:8px;padding:12px;border:1px solid #fed7aa">
+            <div style="font-weight:700;color:var(--amber);margin-bottom:8px;font-size:12px">🎯 Recomendación de estrategia de compras</div>
+            <div style="font-size:12px">
+              <div style="margin-bottom:6px"><b>Maíz rolado:</b> comprar reserva de 2–3 meses en nov–dic (post-cosecha). Precio baja con abundancia de grano.</div>
+              <div style="margin-bottom:6px"><b>Harinolina:</b> monitorear precio mensualmente (depende de soya/mercados internacionales). Comprar cuando esté por debajo de referencia.</div>
+              <div style="margin-bottom:6px"><b>Mineral Prospector y Meat Builder:</b> precio estable — comprar 3–4 meses de reserva en una sola orden para reducir fletes.</div>
+              <div style="margin-bottom:6px"><b>Sal común y Urea:</b> comprar por ton o media ton. No amerita inventario excesivo.</div>
+              <div style="color:var(--red);font-weight:700;font-size:11px;margin-top:8px">⚠️ REGLA: Nunca inmovilizar más del 30% del capital de trabajo en inventario de insumos. Si el rancho está en construcción de reserva de caja, priorizar pedidos frecuentes sobre compra a granel.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabla de cotización comparativa -->
+      <div style="margin-top:16px;font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">📞 Tabla de Cotización Comparativa — Proveedores (llenar al cotizar)</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Insumo</th><th>Precio ref. (abr-24)</th><th>Bovilac Namiquipa<br><small>Precio actual</small></th><th>Proveedor 2<br><small>Precio actual</small></th><th>Proveedor 3<br><small>Precio actual</small></th><th>Mejor precio</th><th>Ahorro vs ref.</th><th>Fecha cotización</th></tr></thead>
+        <tbody>
+          <tr><td>Maíz rolado</td><td>$6.17/kg</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">🔄</td></tr>
+          <tr><td>Harinolina</td><td>$12.12/kg</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">🔄</td></tr>
+          <tr><td>DDG</td><td>$8.52/kg</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">🔄</td></tr>
+          <tr><td>Mineral Prospector</td><td>$19.60/kg</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">🔄</td></tr>
+          <tr><td>Mineral Meat Builder</td><td>$13.50/kg</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">🔄</td></tr>
+          <tr><td>Dulce</td><td>$7.50/kg</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">🔄</td></tr>
+          <tr><td>Sebo</td><td>$9.00/kg</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">🔄</td></tr>
+          <tr><td>Urea</td><td>$10.00/kg</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">🔄</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">—</td><td class="ph" style="text-align:center">🔄</td></tr>
+        </tbody>
+      </table></div>
+      <div style="margin-top:6px;font-size:11px;color:var(--muted)">Esta tabla se llena con Kimberly/Julio al cotizar. El "Ahorro vs ref." se calcula como (precio ref − precio actual) × demanda anual del insumo. Si el ahorro > costo financiero del inventario adicional → comprar a volumen.</div>
+    </div>
+  </div>
+
+  <!-- Levantamiento con Julio -->
+  <div class="proto-section nut" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">📋</span>
+      <div style="flex:1"><div class="proto-name">Checklist de Levantamiento — Julio Ochoa (~22-jun-2026)</div><div style="font-size:11px;color:var(--muted)">Todo lo que se necesita medir, contar e inventariar para completar este módulo</div></div>
+      <span class="tag tag-a">Pendiente 22-jun</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">🏠 Construcciones e Infraestructura</div>
+          <div class="proto-item"><span class="proto-item-icon">☐</span><div><div class="proto-item-title">m² de cada construcción</div><div class="proto-item-desc">Casa principal, casa admin, 2 casas vaquero, casa casco, bodega lienzo, bodega macheros, cuarto gasolina, cuarto monturas, caballerizas, bodegas alimentos 1-4</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">☐</span><div><div class="proto-item-title">Estado físico de cada construcción</div><div class="proto-item-desc">Bueno / Regular / Necesita mantenimiento → priorizar en presupuesto correctivo</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">☐</span><div><div class="proto-item-title">Km de tubería por diámetro</div><div class="proto-item-desc">Medir recorridos de tubería 3", 2" y 1" — o solicitar plano al instalador original</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">☐</span><div><div class="proto-item-title">Capacidad en litros de cada pila</div><div class="proto-item-desc">Medir dimensiones (largo × ancho × profundidad) × factor de forma → litros</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">☐</span><div><div class="proto-item-title">Estado físico de los 17 bebederos</div><div class="proto-item-desc">Funcional / Con fuga / Quebrado / Sin flotador → lista de reparaciones prioritarias</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">☐</span><div><div class="proto-item-title">Numero de caballos y estado de caballerizas</div><div class="proto-item-desc">Cabezas actuales, herraje pendiente, estado de instalaciones</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">📦 Inventarios de Bodega</div>
+          <div class="proto-item"><span class="proto-item-icon">☐</span><div><div class="proto-item-title">Inventario Bodega 3 — Suplemento</div><div class="proto-item-desc">Pesar o medir cada saco/pila: kg reales de cada ingrediente (maíz, harinolina, DDG, Mineral Prospector, sal, urea, sebo, dulce) + mezcla ya preparada si hay</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">☐</span><div><div class="proto-item-title">Inventario Bodegas 1, 2 y 4</div><div class="proto-item-desc">Definir uso de cada una y levantar contenido completo</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">☐</span><div><div class="proto-item-title">Inventario medicamentos y biológicos</div><div class="proto-item-desc">Vacunas (cantidad de dosis), MultiMin 90 (mL), antiparasitarios, antibióticos de reserva, insumos de aplicación — fecha de caducidad de cada lote</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">☐</span><div><div class="proto-item-title">Inventario bodega lienzo y herramienta</div><div class="proto-item-desc">Metros de polywire, cantidad de pulsadores, herramienta eléctrica y manual — partida por partida vs. balance 2025</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">☐</span><div><div class="proto-item-title">Nivel de combustible en tanques</div><div class="proto-item-desc">Diesel y gasolina — dipstick + capacidad del tanque</div></div></div>
+          <div style="margin-top:12px;background:#fef3e2;border-radius:8px;padding:10px;border:1px solid #fed7aa;font-size:12px">
+            <b style="color:var(--amber)">📌 Para comparar con balance 2025:</b><br>
+            El balance valuó el "Material de bodegas" en <b>$972,319</b> (~95 partidas). El levantamiento con Julio permitirá: (1) confirmar si todo sigue en inventario, (2) identificar mermas o faltantes, (3) actualizar valuación con precios vigentes, (4) generar la primera evaluación formal con Julio para comparar en futuras auditorías.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 
@@ -4139,5 +4661,431 @@ function saveBitacora(key,ta){
 // Init calendar on page load
 renderCalendar();
 </script>
+
+<!-- ══════════════════════════════════════════
+     HUERTA BIODINÁMICA
+     ══════════════════════════════════════════ -->
+<div id="tab-huerta" class="tab-content">
+
+  <div class="alert g"><span>🌱</span><span class="alert-text"><b>División Huerta Biodinámica — Nueva División Terrenates.</b> 1.5 ha destinadas a producción de hortalizas para las ~20 familias del rancho, plantas medicinales nativas de Chihuahua para jabones artesanales, y abasto de la Carnicería Terrenates. <b>Vacante abierta: Biólogo/a responsable de la división.</b></span></div>
+
+  <!-- ══ MISIÓN Y KPIs ══ -->
+  <div class="g4" style="margin-bottom:16px">
+    <div class="kpi g"><div class="kpi-label">Área disponible</div><div class="kpi-value">1.5 ha</div><div class="kpi-sub">15,000 m² · casco del rancho</div></div>
+    <div class="kpi a"><div class="kpi-label">Meta producción</div><div class="kpi-value">≥1,200 kg</div><div class="kpi-sub">de verdura/mes para 20 familias</div></div>
+    <div class="kpi b"><div class="kpi-label">Línea jabones</div><div class="kpi-value">Año 2</div><div class="kpi-sub">≥50 piezas/mes · plantas nativas</div></div>
+    <div class="kpi" style="background:var(--surface);border:2px dashed var(--border)"><div class="kpi-label" style="color:var(--amber)">Responsable</div><div class="kpi-value" style="font-size:18px;color:var(--amber)">🔄 Vacante</div><div class="kpi-sub">Biólogo/a · publicar vacante</div></div>
+  </div>
+
+  <!-- ══ VACANTE BIÓLOGO ══ -->
+  <div class="proto-section nut" style="margin-top:0">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">👩‍🔬</span>
+      <div style="flex:1"><div class="proto-name">Vacante — Biólogo/a Responsable de Huerta Biodinámica</div><div style="font-size:11px;color:var(--muted)">Perfil · funciones · dónde publicar · proceso de selección</div></div>
+      <span class="tag tag-r">Vacante abierta</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Perfil buscado</div>
+          <div class="proto-item"><span class="proto-item-icon">🎓</span><div><div class="proto-item-title">Formación</div><div class="proto-item-desc">Biólogo/a, Ing. Agrónomo con especialidad ecológica, o Ing. en Recursos Naturales. Titulado o pasante con tesis en tema afín. Preferible: UACH (Facultad de Ciencias Agrotecnológicas o Zootecnia), UACJ, o similar.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🌿</span><div><div class="proto-item-title">Conocimientos requeridos</div><div class="proto-item-desc">Flora nativa de Chihuahua (medicinales, aromáticas). Agricultura orgánica o biodinámica. Compostaje y bioinsumos. Diseño de huertos productivos. Básico de botánica aplicada y fitoterapia.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">⭐</span><div><div class="proto-item-title">Deseable (no excluyente)</div><div class="proto-item-desc">Experiencia en elaboración de jabones/cosméticos naturales. Conocimiento del calendario biodinámico (María Thun). Manejo de vivero. Riego por goteo.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🧠</span><div><div class="proto-item-title">Perfil personal</div><div class="proto-item-desc">Iniciativa propia. Capacidad de trabajar en campo (zona semiárida, calor, tierra). Afín al modelo de rancho regenerativo. Dispuesto/a a vivir o estar frecuentemente en el rancho.</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Funciones del puesto</div>
+          <div class="proto-item"><span class="proto-item-icon">📅</span><div><div class="proto-item-title">Diseñar y ejecutar el calendario de siembra</div><div class="proto-item-desc">Basado en el protocolo biodinámico y las condiciones climáticas de Buenaventura, Chih.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🌱</span><div><div class="proto-item-title">Gestionar los 5 sectores de la huerta</div><div class="proto-item-desc">Hortalizas, medicinales, aromáticas, árboles frutales, compostaje y preparaciones BD.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🧴</span><div><div class="proto-item-title">Elaborar jabones y cosméticos artesanales</div><div class="proto-item-desc">Con plantas nativas recolectadas y cultivadas. Desarrollar la línea Terrenates para la carnicería.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">📦</span><div><div class="proto-item-title">Coordinar suministro a carnicería y familias</div><div class="proto-item-desc">Programar cosechas, empaque, entrega semanal de canasta de verduras, surtido en carnicería.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">📋</span><div><div class="proto-item-title">Bitácora y reporte semanal</div><div class="proto-item-desc">Registro de siembras, cosechas, incidencias (plagas, clima), consumo de insumos. Reporte al Director.</div></div></div>
+          <hr style="border-color:var(--border);margin:10px 0">
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:6px">¿Dónde publicar la vacante?</div>
+          <div class="row"><span class="row-label">UACH — Facultad de Ciencias Agrotecnológicas</span><span class="row-val">Tablón + Facebook UACH</span></div>
+          <div class="row"><span class="row-label">UACJ — Biología e ICSA</span><span class="row-val">Bolsa de trabajo UACJ</span></div>
+          <div class="row"><span class="row-label">LinkedIn Chihuahua</span><span class="row-val">Perfil Terrenates / Fausto</span></div>
+          <div class="row"><span class="row-label">Grupos de agricultura orgánica México (FB)</span><span class="row-val">Publicación en grupos</span></div>
+          <div class="row"><span class="row-label">Red de Agricultura Biodinámica México</span><span class="row-val">Contactar a través de Demeter México</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MAPA DE LA HUERTA ══ -->
+  <div style="margin:18px 0 8px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--border);padding-bottom:6px">🗺️ Distribución de los 15,000 m²</div>
+
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px">
+    <div style="background:#f0fdf4;border:2px solid var(--green);border-radius:10px;padding:12px;text-align:center">
+      <div style="font-size:22px">🥕</div>
+      <div style="font-weight:700;font-size:12px;color:var(--green)">Sector 1</div>
+      <div style="font-size:11px;font-weight:700">Hortalizas</div>
+      <div style="font-size:13px;font-weight:900;color:var(--green);margin:4px 0">5,500 m²</div>
+      <div style="font-size:10px;color:var(--muted)">4 cuarteles rotación</div>
+    </div>
+    <div style="background:#fdf4ff;border:2px solid #a855f7;border-radius:10px;padding:12px;text-align:center">
+      <div style="font-size:22px">🌿</div>
+      <div style="font-weight:700;font-size:12px;color:#7e22ce">Sector 2</div>
+      <div style="font-size:11px;font-weight:700">Medicinales</div>
+      <div style="font-size:13px;font-weight:900;color:#7e22ce;margin:4px 0">3,500 m²</div>
+      <div style="font-size:10px;color:var(--muted)">Aromáticas · nativas · flores</div>
+    </div>
+    <div style="background:#fff7ed;border:2px solid var(--amber);border-radius:10px;padding:12px;text-align:center">
+      <div style="font-size:22px">🍑</div>
+      <div style="font-weight:700;font-size:12px;color:var(--amber)">Sector 3</div>
+      <div style="font-size:11px;font-weight:700">Árboles Frutales</div>
+      <div style="font-size:13px;font-weight:900;color:var(--amber);margin:4px 0">4,000 m²</div>
+      <div style="font-size:10px;color:var(--muted)">Higo · granada · durazno · uva</div>
+    </div>
+    <div style="background:#fffbeb;border:2px solid #ca8a04;border-radius:10px;padding:12px;text-align:center">
+      <div style="font-size:22px">♻️</div>
+      <div style="font-weight:700;font-size:12px;color:#92400e">Sector 4</div>
+      <div style="font-size:11px;font-weight:700">Compostaje BD</div>
+      <div style="font-size:13px;font-weight:900;color:#92400e;margin:4px 0">500 m²</div>
+      <div style="font-size:10px;color:var(--muted)">Camas · preparaciones</div>
+    </div>
+    <div style="background:#f0f9ff;border:2px solid var(--blue);border-radius:10px;padding:12px;text-align:center">
+      <div style="font-size:22px">🏗️</div>
+      <div style="font-weight:700;font-size:12px;color:var(--blue)">Sector 5</div>
+      <div style="font-size:11px;font-weight:700">Infraestructura</div>
+      <div style="font-size:13px;font-weight:900;color:var(--blue);margin:4px 0">1,500 m²</div>
+      <div style="font-size:10px;color:var(--muted)">Vivero · bodega · riego</div>
+    </div>
+  </div>
+
+  <!-- ══ DETALLE SECTORES ══ -->
+  <div class="proto-section eco">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🥕</span>
+      <div style="flex:1"><div class="proto-name">Sector 1 — Hortalizas en Rotación (5,500 m²)</div><div style="font-size:11px;color:var(--muted)">4 cuarteles de ~1,375 m² · rotación anual · producción para 20 familias + carnicería</div></div>
+      <span class="tag tag-g">Meta: 1,200 kg/mes</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="rule">🔄 ROTACIÓN ANUAL: cada cuartel cambia de categoría al año siguiente para romper ciclos de plagas y enfermedades. Cuartel A→B→C→D→A en ciclo de 4 años.</div>
+      <div class="g2">
+        <div>
+          <div style="background:var(--surface);border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+            <table style="width:100%;font-size:12px;border-collapse:collapse">
+              <thead><tr style="background:var(--green);color:#fff"><th style="padding:8px;text-align:left">Cuartel</th><th style="padding:8px;text-align:left">Tipo</th><th style="padding:8px;text-align:left">Cultivos</th><th style="padding:8px;text-align:center">Día BD</th></tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)">
+                  <td style="padding:8px;font-weight:700">A — Hojas</td>
+                  <td style="padding:8px">Follaje</td>
+                  <td style="padding:8px">Lechuga, espinaca, acelga, col, kale, cilantro, perejil, apio</td>
+                  <td style="padding:8px;text-align:center">💧 Hoja</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border)">
+                  <td style="padding:8px;font-weight:700">B — Raíces</td>
+                  <td style="padding:8px">Tubérculos</td>
+                  <td style="padding:8px">Zanahoria, betabel, nabo, cebolla, ajo, rábano, papa</td>
+                  <td style="padding:8px;text-align:center">🪨 Raíz</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border)">
+                  <td style="padding:8px;font-weight:700">C — Frutos</td>
+                  <td style="padding:8px">Frutos/semillas</td>
+                  <td style="padding:8px">Jitomate, chile, calabaza, pepino, ejote, tomate verde, elote</td>
+                  <td style="padding:8px;text-align:center">🔥 Fruto</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px;font-weight:700">D — Leguminosas</td>
+                  <td style="padding:8px">Legumbres</td>
+                  <td style="padding:8px">Frijol (bayo, negro), garbanzo, habas, maíz criollo (Olotillo)</td>
+                  <td style="padding:8px;text-align:center">🔥 Fruto</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Estimación de producción y destino</div>
+          <div style="background:#f0fdf4;border-radius:8px;padding:12px;border:1px solid #bbf7d0;margin-bottom:10px">
+            <div class="row"><span class="row-label">Rendimiento promedio</span><span class="row-val">2–4 kg/m²/ciclo (conservador: 2 kg)</span></div>
+            <div class="row"><span class="row-label">Área productiva</span><span class="row-val">~4,000 m² activos por ciclo</span></div>
+            <div class="row"><span class="row-label">Producción estimada</span><span class="row-val" style="font-weight:700">~8,000 kg/ciclo anual</span></div>
+            <div class="row"><span class="row-label">Ciclos al año</span><span class="row-val">2 (primavera-verano + otoño)</span></div>
+            <div class="row"><span class="row-label">Producción total año</span><span class="row-val" style="font-weight:700;color:var(--green)">~16,000 kg/año · ~1,333 kg/mes</span></div>
+          </div>
+          <div style="background:var(--surface);border-radius:8px;padding:10px;border:1px solid var(--border)">
+            <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:6px">Distribución del producto</div>
+            <div class="row"><span class="row-label">20 familias del rancho</span><span class="row-val">~60 kg/familia/mes = 1,200 kg/mes</span></div>
+            <div class="row"><span class="row-label">Excedente a carnicería</span><span class="row-val" style="color:var(--green);font-weight:700">~133 kg/mes para venta</span></div>
+            <div class="row"><span class="row-label">Reserva semillas / merma</span><span class="row-val">~10%</span></div>
+            <div style="margin-top:8px;font-size:11px;color:var(--muted)">Precio de referencia en Juárez: verdura fresca orgánica $40–80/kg. Ingreso potencial carnicería: $5,320–10,640/mes del excedente.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proto-section eco" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🌿</span>
+      <div style="flex:1"><div class="proto-name">Sector 2 — Plantas Medicinales y Aromáticas (3,500 m²)</div><div style="font-size:11px;color:var(--muted)">Flora nativa de Chihuahua (605 sp. medicinales) · aromáticas culinarias · línea de jabones artesanales</div></div>
+      <span class="tag tag-b">Jabones Terrenates</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">Aromáticas culinarias — 1,200 m²</div>
+          <div style="background:var(--surface);border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+            <table style="width:100%;font-size:11px;border-collapse:collapse">
+              <thead><tr style="background:var(--brand);color:#fff"><th style="padding:7px">Planta</th><th style="padding:7px;text-align:center">m²</th><th style="padding:7px">Uso</th><th style="padding:7px;text-align:center">Día BD</th></tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Orégano silvestre (Lippia graveolens)</td><td style="padding:7px;text-align:center">200</td><td style="padding:7px">Culinario · jabones antibacteriales</td><td style="padding:7px;text-align:center">🌬️</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Romero (Rosmarinus officinalis)</td><td style="padding:7px;text-align:center">200</td><td style="padding:7px">Culinario · jabones estimulantes</td><td style="padding:7px;text-align:center">🌬️</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Tomillo (Thymus vulgaris)</td><td style="padding:7px;text-align:center">150</td><td style="padding:7px">Culinario · antiséptico</td><td style="padding:7px;text-align:center">🌬️</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Albahaca (Ocimum basilicum)</td><td style="padding:7px;text-align:center">150</td><td style="padding:7px">Culinario · carnicería</td><td style="padding:7px;text-align:center">🌬️</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Menta / Hierbabuena</td><td style="padding:7px;text-align:center">150</td><td style="padding:7px">Culinario · digestiva · jabones</td><td style="padding:7px;text-align:center">💧</td></tr>
+                <tr style="border-bottom:1px solid var(--border)"><td style="padding:7px">Epazote (Dysphania ambrosioides)</td><td style="padding:7px;text-align:center">100</td><td style="padding:7px">Culinario tradicional · repelente</td><td style="padding:7px;text-align:center">💧</td></tr>
+                <tr><td style="padding:7px">Cebollín / perejil / salvia</td><td style="padding:7px;text-align:center">250</td><td style="padding:7px">Culinario · carnicería</td><td style="padding:7px;text-align:center">💧/🌬️</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="font-size:12px;font-weight:700;color:#7e22ce;margin-top:12px;margin-bottom:8px">Medicinales nativas de Chihuahua — 1,500 m²</div>
+          <div style="background:#fdf4ff;border-radius:8px;overflow:hidden;border:1px solid #d8b4fe">
+            <table style="width:100%;font-size:11px;border-collapse:collapse">
+              <thead><tr style="background:#7e22ce;color:#fff"><th style="padding:7px">Planta nativa</th><th style="padding:7px;text-align:center">m²</th><th style="padding:7px">Propiedad / uso en jabón</th></tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #d8b4fe"><td style="padding:7px"><b>Gobernadora</b> (Larrea tridentata)</td><td style="padding:7px;text-align:center">300</td><td style="padding:7px">Antibacterial, antiinflamatoria. Jabón para acné y piel grasa. Ícono del desierto chihuahuense.</td></tr>
+                <tr style="border-bottom:1px solid #d8b4fe"><td style="padding:7px"><b>Candelilla</b> (Euphorbia antisyphilitica)</td><td style="padding:7px;text-align:center">250</td><td style="padding:7px">Cera vegetal. Base para labiales, cremas, ceras corporales. Producto premium.</td></tr>
+                <tr style="border-bottom:1px solid #d8b4fe"><td style="padding:7px"><b>Toronjil</b> (Agastache mexicana)</td><td style="padding:7px;text-align:center">200</td><td style="padding:7px">Relajante, nervioso, digestivo. Jabones suaves piel sensible. Nativa Sierra Madre.</td></tr>
+                <tr style="border-bottom:1px solid #d8b4fe"><td style="padding:7px"><b>Árnica serrana</b> (Heterotheca inuloides)</td><td style="padding:7px;text-align:center">200</td><td style="padding:7px">Antiinflamatoria, cicatrizante. Jabones musculares y deportivos.</td></tr>
+                <tr style="border-bottom:1px solid #d8b4fe"><td style="padding:7px"><b>Manzanilla serrana</b> (Artemisia spp.)</td><td style="padding:7px;text-align:center">200</td><td style="padding:7px">Cicatrizante, antiinflamatoria. Jabón bebés y piel delicada.</td></tr>
+                <tr style="border-bottom:1px solid #d8b4fe"><td style="padding:7px"><b>Damiana</b> (Turnera diffusa)</td><td style="padding:7px;text-align:center">150</td><td style="padding:7px">Tónico energizante. Jabones y aceites corporales.</td></tr>
+                <tr><td style="padding:7px"><b>Cola de caballo</b> (Equisetum spp.)</td><td style="padding:7px;text-align:center">200</td><td style="padding:7px">BD 508 antifúngico + jabones fortalecedores de cabello/uñas.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--amber);margin-bottom:8px">Flores para jabones y secado — 800 m²</div>
+          <div style="background:#fffbeb;border-radius:8px;padding:10px;border:1px solid #fde68a;margin-bottom:12px">
+            <div class="proto-item" style="margin:0 0 8px"><span class="proto-item-icon">💜</span><div><div class="proto-item-title">Lavanda (Lavandula angustifolia) — 400 m²</div><div class="proto-item-desc">Calmante, antiséptica. Base de la línea principal de jabones. Adaptable a zona semiárida con riego controlado. Flor seca para venta en carnicería.</div></div></div>
+            <div class="proto-item" style="margin:0 0 8px"><span class="proto-item-icon">🟡</span><div><div class="proto-item-title">Caléndula (Calendula officinalis) — 250 m²</div><div class="proto-item-desc">Antiinflamatoria, cicatrizante. Jabones para piel seca y sensible. Pétalos en aceite macerado. Fácil de cultivar en Chihuahua.</div></div></div>
+            <div class="proto-item" style="margin:0"><span class="proto-item-icon">⚪</span><div><div class="proto-item-title">Manzanilla alemana (Matricaria chamomilla) — 150 m²</div><div class="proto-item-desc">Calmante, antialérgica. Jabones para piel irritada y bebés. Té para venta.</div></div></div>
+          </div>
+
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">🧴 Línea de Jabones Artesanales Terrenates</div>
+          <div style="background:var(--surface);border-radius:8px;padding:10px;border:1px solid var(--border)">
+            <div style="font-size:11px;font-weight:700;color:var(--brand);margin-bottom:8px">Productos propuestos (año 2 en adelante):</div>
+            <div class="row"><span class="row-label">Jabón Gobernadora</span><span class="row-val">Antibacterial · piel grasa</span></div>
+            <div class="row"><span class="row-label">Jabón Lavanda + Candelilla</span><span class="row-val">Calmante · piel sensible</span></div>
+            <div class="row"><span class="row-label">Jabón Árnica del Rancho</span><span class="row-val">Deportivo · muscular</span></div>
+            <div class="row"><span class="row-label">Bálsamo de Candelilla</span><span class="row-val">Labial · protector solar natural</span></div>
+            <div class="row"><span class="row-label">Aceite de Manzanilla</span><span class="row-val">Bebés · piel delicada</span></div>
+            <div class="row"><span class="row-label">Kit Terrenates (3 jabones)</span><span class="row-val">Producto de gift/exhibición carnicería</span></div>
+            <div style="margin-top:8px;font-size:11px;color:var(--muted)">Precio sugerido jabones artesanales orgánicos: $80–150/pza. Meta año 2: 50 pzas/mes = $4,000–7,500/mes. Punto de venta: carnicería Juárez + envíos.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proto-section eco" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🍑</span>
+      <div style="flex:1"><div class="proto-name">Sector 3 — Árboles Frutales (4,000 m²)</div><div style="font-size:11px;color:var(--muted)">Especies adaptadas al desierto chihuahuense · producción para familias + carnicería</div></div>
+      <span class="tag tag-a">Producción año 3+</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="alert a" style="margin-bottom:12px"><span>⏳</span><span class="alert-text">Los árboles frutales producen a pleno rendimiento en año 3-5. Plantar en el primer año para tener producción estable más adelante. Prioridad de siembra inmediata: higo, granada y membrillo (los más rústicos).</span></div>
+      <div style="background:var(--surface);border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+        <table style="width:100%;font-size:12px;border-collapse:collapse">
+          <thead><tr style="background:var(--amber);color:#fff"><th style="padding:8px;text-align:left">Especie</th><th style="padding:8px;text-align:center">Árboles</th><th style="padding:8px;text-align:center">m²</th><th style="padding:8px;text-align:left">Adaptación</th><th style="padding:8px;text-align:left">Destino</th><th style="padding:8px;text-align:center">Época cosecha</th></tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);background:#fefce8"><td style="padding:8px;font-weight:700">🌳 Higo (Ficus carica)</td><td style="padding:8px;text-align:center">10</td><td style="padding:8px;text-align:center">1,000</td><td style="padding:8px"><span class="tag tag-g">Excelente</span> · muy resistente a calor</td><td style="padding:8px">Familias · carnicería · mermeladas</td><td style="padding:8px;text-align:center">Jul–Sep</td></tr>
+            <tr style="border-bottom:1px solid var(--border);background:#fefce8"><td style="padding:8px;font-weight:700">🍎 Granada (Punica granatum)</td><td style="padding:8px;text-align:center">10</td><td style="padding:8px;text-align:center">800</td><td style="padding:8px"><span class="tag tag-g">Excelente</span> · ideal zonas áridas</td><td style="padding:8px">Familias · carnicería · decoración</td><td style="padding:8px;text-align:center">Sep–Nov</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px;font-weight:700">🍑 Durazno/nectarina</td><td style="padding:8px;text-align:center">8</td><td style="padding:8px;text-align:center">600</td><td style="padding:8px"><span class="tag tag-g">Buena</span> · requiere horas-frío (bien en Buenaventura)</td><td style="padding:8px">Familias · mermeladas carnicería</td><td style="padding:8px;text-align:center">Jun–Jul</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px;font-weight:700">🍇 Uva (parra)</td><td style="padding:8px;text-align:center">8</td><td style="padding:8px;text-align:center">500</td><td style="padding:8px"><span class="tag tag-g">Buena</span> · requiere riego · pergola</td><td style="padding:8px">Familias · jugo · carnicería</td><td style="padding:8px;text-align:center">Ago–Sep</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px;font-weight:700">🍐 Membrillo</td><td style="padding:8px;text-align:center">4</td><td style="padding:8px;text-align:center">350</td><td style="padding:8px"><span class="tag tag-g">Muy rústico</span> · poco mantenimiento</td><td style="padding:8px">Mermeladas · ates carnicería</td><td style="padding:8px;text-align:center">Sep–Oct</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px;font-weight:700">🌿 Tejocote (Crataegus)</td><td style="padding:8px;text-align:center">4</td><td style="padding:8px;text-align:center">350</td><td style="padding:8px"><span class="tag tag-g">Nativo Sierra</span> · muy resistente</td><td style="padding:8px">Familias · ponche · medicinal</td><td style="padding:8px;text-align:center">Oct–Dic</td></tr>
+            <tr><td style="padding:8px;font-weight:700">🍎 Manzana/Pera</td><td style="padding:8px;text-align:center">6</td><td style="padding:8px;text-align:center">400</td><td style="padding:8px"><span class="tag tag-a">Media</span> · zona más resguardada</td><td style="padding:8px">Familias · carnicería</td><td style="padding:8px;text-align:center">Ago–Oct</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PROTOCOLOS BIODINÁMICOS ══ -->
+  <div style="margin:22px 0 8px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--border);padding-bottom:6px">🌙 Protocolos Biodinámicos</div>
+
+  <div class="proto-section san">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🌙</span>
+      <div style="flex:1"><div class="proto-name">Calendario Lunar y Tipo de Días BD</div><div style="font-size:11px;color:var(--muted)">María Thun · luna en los signos del zodiaco · cuándo sembrar cada cultivo</div></div>
+      <span class="tag tag-b">Protocolo activo</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div style="background:var(--surface);border-radius:8px;overflow:hidden;border:1px solid var(--border);margin-bottom:14px">
+        <table style="width:100%;font-size:12px;border-collapse:collapse">
+          <thead><tr style="background:#1e3a5f;color:#fff"><th style="padding:9px">Tipo de día</th><th style="padding:9px">Elemento</th><th style="padding:9px">Constelación lunar</th><th style="padding:9px;text-align:left">Sembrar / cosechar</th><th style="padding:9px;text-align:left">Evitar</th></tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);background:#fef9ee">
+              <td style="padding:9px;font-weight:700">🪨 Día Raíz</td>
+              <td style="padding:9px">Tierra</td>
+              <td style="padding:9px">Tauro ♉ · Virgo ♍ · Capricornio ♑</td>
+              <td style="padding:9px">Zanahoria, betabel, nabo, papa, ajo, cebolla, rábano. Cosechar raíces.</td>
+              <td style="padding:9px;font-size:11px;color:var(--muted)">Trasplantar hojas</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);background:#f0fdf4">
+              <td style="padding:9px;font-weight:700">💧 Día Hoja</td>
+              <td style="padding:9px">Agua</td>
+              <td style="padding:9px">Cáncer ♋ · Escorpión ♏ · Piscis ♓</td>
+              <td style="padding:9px">Lechuga, espinaca, col, acelga, hierbas foliares, perejil. Regar más.</td>
+              <td style="padding:9px;font-size:11px;color:var(--muted)">Cosechar para conserva</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);background:#fdf4ff">
+              <td style="padding:9px;font-weight:700">🌬️ Día Flor</td>
+              <td style="padding:9px">Aire</td>
+              <td style="padding:9px">Géminis ♊ · Libra ♎ · Acuario ♒</td>
+              <td style="padding:9px">Flores, aromáticas (romero, lavanda, orégano), brócoli, coliflor. Cosechar flores.</td>
+              <td style="padding:9px;font-size:11px;color:var(--muted)">Abonar el suelo</td>
+            </tr>
+            <tr style="background:#fff7ed">
+              <td style="padding:9px;font-weight:700">🔥 Día Fruto</td>
+              <td style="padding:9px">Fuego</td>
+              <td style="padding:9px">Aries ♈ · Leo ♌ · Sagitario ♐</td>
+              <td style="padding:9px">Jitomate, chile, calabaza, pepino, maíz, frijol, garbanzo. Cosechar frutos/semillas.</td>
+              <td style="padding:9px;font-size:11px;color:var(--muted)">Podar árboles</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">⚗️ Preparaciones BD — Cuáles usar en Terrenates</div>
+          <div class="proto-item"><span class="proto-item-icon">🐄</span><div><div class="proto-item-title">BD 500 — Cuerno Estiércol</div><div class="proto-item-desc">Estiércol de vaca fermentado en cuerno bovino, enterrado en invierno. Spray al suelo, tarde, luna descendente. Activa la microbiología del suelo. <b>Se puede hacer en el rancho con estiércol propio.</b></div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">☀️</span><div><div class="proto-item-title">BD 501 — Cuerno Sílice</div><div class="proto-item-desc">Sílice (cristal de roca molida) en cuerno bovino, enterrado en verano. Spray foliar mañana temprano, luna ascendente. Fortalece la planta y su energía lumínica. Hacer en verano (enterrar en primavera).</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🌿</span><div><div class="proto-item-title">BD 508 — Cola de Caballo (Equiseto)</div><div class="proto-item-desc">Infusión de equiseto. Spray foliar preventivo contra hongos. Especialmente en julio–agosto (temporada de lluvias = riesgo alto de mildiu y antracnosis).</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">♻️</span><div><div class="proto-item-title">BD 502–507 — Preparaciones de Compost</div><div class="proto-item-desc">Milenrama, camomila, ortiga, corteza de roble, diente de león, valeriana. Se insertan en el compost para enriquecerlo. Se consiguen con distribuidores Demeter México.</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--brand);margin-bottom:8px">🔗 Recursos y certificación biodinámica</div>
+          <div style="background:var(--surface);border-radius:8px;padding:10px;border:1px solid var(--border)">
+            <div class="row"><span class="row-label">Demeter México</span><span class="row-val">Certificación y preparaciones BD</span></div>
+            <div class="row"><span class="row-label">Calendario Stella Natura 2026</span><span class="row-val">Siembra por constelaciones (anual)</span></div>
+            <div class="row"><span class="row-label">María Thun (libro)</span><span class="row-val">"El cultivo biodinámico" — referencia base</span></div>
+            <div class="row"><span class="row-label">UACH Agrotecnológicas</span><span class="row-val">Asesoría académica regional</span></div>
+            <div class="row"><span class="row-label">Certificación orgánica</span><span class="row-val">Meta a 3 años: Certimex o OCIA México</span></div>
+          </div>
+          <div style="margin-top:10px;background:#f0fdf4;border-radius:8px;padding:10px;border:1px solid #bbf7d0;font-size:12px">
+            <b style="color:var(--green)">💡 Ventaja estratégica:</b> Chihuahua tiene 605 especies de plantas medicinales (20.2% del total nacional). La gobernadora (<i>Larrea tridentata</i>) y la candelilla son íconos del desierto chihuahuense — dan identidad única a la línea de jabones que difícilmente otra carnicería puede replicar.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CALENDARIO ANUAL ══ -->
+  <div style="margin:22px 0 8px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--border);padding-bottom:6px">🗓️ Calendario Anual — Buenaventura, Chih. (~1,600 msnm)</div>
+
+  <div style="background:var(--surface);border-radius:10px;overflow:hidden;border:1px solid var(--border)">
+    <table style="width:100%;font-size:12px;border-collapse:collapse">
+      <thead><tr style="background:var(--brand);color:#fff">
+        <th style="padding:10px;width:80px">Mes</th>
+        <th style="padding:10px">Siembra</th>
+        <th style="padding:10px">Cuidado y mantenimiento</th>
+        <th style="padding:10px">Cosecha</th>
+        <th style="padding:10px;width:100px">BD</th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);background:#f0f9ff">
+          <td style="padding:9px;font-weight:700;text-align:center">Ene–Feb</td>
+          <td style="padding:9px">Vivero interior: chiles, jitomate, pimiento. Ajo y cebolla directos. Siembra flores (lavanda en charola).</td>
+          <td style="padding:9px">Poda árboles frutales (dormancia). Preparar camas con compost. Aplicar BD 500 al suelo.</td>
+          <td style="padding:9px">Col, espinaca, betabel (plantados en oct). Hierbas de invierno.</td>
+          <td style="padding:9px;font-size:11px">BD 500 suelo. Luna descendente.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:9px;font-weight:700;text-align:center">Marzo</td>
+          <td style="padding:9px">Preparar camas finales. Trasplantar plántulas de jitomate y chile (última helada ~15-20 mar). Siembra directa zanahoria, betabel.</td>
+          <td style="padding:9px">Riego de establecimiento. Mulch para conservar humedad.</td>
+          <td style="padding:9px">Ajo, cebolla sembrados en oct. Espinaca de invierno.</td>
+          <td style="padding:9px;font-size:11px">Día raíz para tubérculos. Día fruto para trasplantes.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:#fefce8">
+          <td style="padding:9px;font-weight:700;text-align:center">Abril</td>
+          <td style="padding:9px">Siembra directa: frijol, calabaza, ejote, pepino, elote (maíz criollo). Trasplante de chile y jitomate al campo. Aromáticas por esqueje.</td>
+          <td style="padding:9px">Riego 2x semana. Tutores para jitomate. Primer abono con biológico (BD preparaciones compost).</td>
+          <td style="padding:9px">Lechugas de ciclo corto. Espinaca. Zanahoria temprana.</td>
+          <td style="padding:9px;font-size:11px">Día fruto para jitomate/chile. Día raíz para zanahoria.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:9px;font-weight:700;text-align:center">Mayo</td>
+          <td style="padding:9px">2a siembra de elote (escalonada). Pepino. Ejote.</td>
+          <td style="padding:9px">Control de maleza (manual / mulch). Riego goteo. Inicio de calor fuerte.</td>
+          <td style="padding:9px">Jitomate temprano. Calabaza. Ejote. Aromáticas para secado.</td>
+          <td style="padding:9px;font-size:11px">BD 501 foliar (mañana, luna ascendente).</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:#fef3e2">
+          <td style="padding:9px;font-weight:700;text-align:center">Junio</td>
+          <td style="padding:9px">Mantenimiento. Poco espacio para siembra nueva (calor extremo). Preparar vivero para ciclo otoñal.</td>
+          <td style="padding:9px">Riego diario. Sombra para cultivos sensibles. Cosecha de aromáticas antes de floración (máx aceites esenciales).</td>
+          <td style="padding:9px">Chile, jitomate, calabaza, pepino en plena producción. Durazno temprano. Aromáticas.</td>
+          <td style="padding:9px;font-size:11px">Cosechar aromáticas en día flor. BD 508 preventivo.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:#f0fdf4">
+          <td style="padding:9px;font-weight:700;text-align:center">Jul–Ago</td>
+          <td style="padding:9px">⛈️ Temporada de lluvia. Siembra de frijol de temporal. Inicio vivero otoñal (lechuga, col, brócoli).</td>
+          <td style="padding:9px">Lluvias reducen riego. BD 508 (equiseto) contra hongos/mildiu — aplicar semanal en lluvia. Desyerbe post-lluvia.</td>
+          <td style="padding:9px">Pico: jitomate, chile, calabaza, ejote, pepino. Higo. Uva temprana.</td>
+          <td style="padding:9px;font-size:11px">BD 508 antifúngico. Cosechar frutos en día fruto.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:9px;font-weight:700;text-align:center">Septiembre</td>
+          <td style="padding:9px">🍂 Inicio ciclo otoñal. Sembrar: lechuga, espinaca, col, brócoli, coliflor, kale, acelga. Zanahoria, betabel, nabo directo.</td>
+          <td style="padding:9px">Reducción lluvia. Retomar riego goteo. Compostaje activo con restos de verano.</td>
+          <td style="padding:9px">Cosecha masiva de verano. Granada temprana. Uva. Manzana.</td>
+          <td style="padding:9px;font-size:11px">Día hoja para siembra otoñal. BD 500 suelo post-lluvias.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:#fefce8">
+          <td style="padding:9px;font-weight:700;text-align:center">Octubre</td>
+          <td style="padding:9px">Siembra: ajo y cebolla (cosecha primavera). Espinaca, rábano. Plantas medicinales por esqueje (aprovechar temperatura ideal).</td>
+          <td style="padding:9px">Temperatura ideal. Clima perfecto para trabajo en campo. Recolección de semillas criollas para temporada siguiente.</td>
+          <td style="padding:9px">Granada en plena producción. Membrillo. Tejocote. Higo tardío. Lechugas otoñales.</td>
+          <td style="padding:9px;font-size:11px">Día raíz para ajo/cebolla. Cosechar frutas día fruto.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:9px;font-weight:700;text-align:center">Noviembre</td>
+          <td style="padding:9px">Siembra en vivero para invierno: plántulas de chiles para enero. Poco en campo (primeras heladas).</td>
+          <td style="padding:9px">Cubrir cultivos sensibles con agribon. Primeras heladas ~1-15 nov. Dejar maíz a secar en pie.</td>
+          <td style="padding:9px">Col, brócoli, coliflor, kale. Zanahoria y betabel. Tejocote. Cosecha de maíz seco.</td>
+          <td style="padding:9px;font-size:11px">Elaboración de jabones (temporada baja campo). BD 500.</td>
+        </tr>
+        <tr>
+          <td style="padding:9px;font-weight:700;text-align:center">Diciembre</td>
+          <td style="padding:9px">Heladas. Siembra mínima en vivero protegido. Ajo plantado en oct sigue creciendo lentamente.</td>
+          <td style="padding:9px">Compostaje activo con material de temporada. Planificación del año siguiente. Preparar cuernos BD 500 (enterrar solsticio de invierno).</td>
+          <td style="padding:9px">Espinaca, lechuga, col (resistentes al frío). Betabel tardío.</td>
+          <td style="padding:9px;font-size:11px">Enterrar BD 500 (solsticio). Elaborar jabones y cosméticos.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══ CONEXIÓN CARNICERÍA ══ -->
+  <div style="margin:22px 0 8px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--border);padding-bottom:6px">🥩 Conexión con Carnicería Terrenates</div>
+
+  <div style="background:linear-gradient(135deg,#f0fdf4,#fff7ed);border-radius:12px;padding:16px;border:2px solid var(--green)">
+    <div style="font-weight:700;color:var(--brand);font-size:14px;margin-bottom:12px">Productos de la huerta que llegan a la carnicería</div>
+    <div class="g2">
+      <div>
+        <div class="proto-item"><span class="proto-item-icon">🌿</span><div><div class="proto-item-title">Hierbas aromáticas empaquetadas</div><div class="proto-item-desc">Bouquets de romero, tomillo, orégano, lavanda — presentación premium para barbacoa y asados. Atado y con etiqueta Terrenates.</div></div></div>
+        <div class="proto-item"><span class="proto-item-icon">🥕</span><div><div class="proto-item-title">Verdura fresca de temporada</div><div class="proto-item-desc">Excedente de hortalizas (jitomate, chile, cebolla, ajo, calabaza) vendido en punto de venta de la carnicería. Orgánica y del mismo rancho.</div></div></div>
+        <div class="proto-item"><span class="proto-item-icon">🍑</span><div><div class="proto-item-title">Fruta de temporada y mermeladas</div><div class="proto-item-desc">Higo, granada, durazno frescos en temporada. Mermeladas artesanales fuera de temporada. Complemento perfecto de la carne Terrenates.</div></div></div>
+      </div>
+      <div>
+        <div class="proto-item"><span class="proto-item-icon">🧴</span><div><div class="proto-item-title">Jabones artesanales Terrenates</div><div class="proto-item-desc">Exhibición y venta en carnicería como producto complementario. Gobernadora, lavanda, árnica — plantas que crecen donde vive el ganado.</div></div></div>
+        <div class="proto-item"><span class="proto-item-icon">🌱</span><div><div class="proto-item-title">Semillas criollas y especias</div><div class="proto-item-desc">Chiles secos, maíz criollo, ajo morado — productos con historia e identidad chihuahuense.</div></div></div>
+        <div style="margin-top:10px;background:#fff;border-radius:8px;padding:10px;border:1px solid #bbf7d0;font-size:12px">
+          <b style="color:var(--green)">Mensaje de marca:</b> "Del mismo rancho donde nació tu carne, vienen las hierbas con las que la cocinas y el jabón con el que te lavas las manos." — diferenciador único para la carnicería.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 </body>
 </html>
