@@ -85,6 +85,8 @@ tr:hover td{background:#faf7f3}
 .div-tabs button:hover{color:var(--brand)}
 .div-tabs button.active{color:var(--brand);border-bottom-color:var(--brand);font-weight:700}
 .div-panel{display:none}.div-panel.active{display:block}
+.sop-div-panel{display:none}.sop-div-panel.active{display:block}
+.sop-pend{border-left-color:var(--amber)!important;opacity:.85}
 /* 7 PASOS */
 .paso{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:6px;overflow:hidden}
 .paso-header{display:flex;align-items:center;padding:12px 15px;cursor:pointer;user-select:none;transition:background .15s}
@@ -3061,10 +3063,195 @@ function switchCalTab(tab) {
      SOPs
      ══════════════════════════════════════════ -->
 <div id="tab-sops" class="tab-content">
-  <div class="alert b"><span>ℹ️</span><span class="alert-text">Estos son los protocolos con los que trabajamos en Terrenates. Pica cualquier tarjeta para ver el protocolo completo. Los campos <span class="ph">🔄</span> se afinan con veterinario/nutriólogo.</span></div>
+  <div class="alert b"><span>ℹ️</span><span class="alert-text">Protocolos organizados por división. Selecciona la división para ver sus SOPs activos y los pendientes de desarrollar. Los campos <span class="ph">🔄</span> se afinan con veterinario/nutriólogo. Las secciones en <b style="color:var(--amber)">ámbar</b> son SOPs por construir.</span></div>
 
-  <!-- ── IATF Comercial ── -->
-  <div class="proto-section rep" style="margin-top:10px">
+  <!-- ── Navegación por división ── -->
+  <div class="div-tabs" style="margin-top:12px">
+    <button class="sop-nav-btn active" onclick="showSopDiv('rancho',this)">🌐 Todo el Rancho</button>
+    <button class="sop-nav-btn" onclick="showSopDiv('cria',this)">🐮 Cría Comercial</button>
+    <button class="sop-nav-btn" onclick="showSopDiv('registro',this)">⭐ Registro Hereford</button>
+    <button class="sop-nav-btn" onclick="showSopDiv('repasto',this)">🌿 Repasto</button>
+    <button class="sop-nav-btn" onclick="showSopDiv('engorda',this)">🏭 Engorda</button>
+    <button class="sop-nav-btn" onclick="showSopDiv('caceria',this)">🏹 Cacería</button>
+    <button class="sop-nav-btn" onclick="showSopDiv('huerta',this)">🌱 Huerta BD</button>
+    <button class="sop-nav-btn" onclick="showSopDiv('carniceria',this)">🥩 Carnicería</button>
+  </div>
+
+  <!-- ══ TODO EL RANCHO — Protocolos transversales ══ -->
+  <div id="sop-div-rancho" class="sop-div-panel active">
+    <div class="alert b" style="margin:10px 0 6px"><span>🌐</span><span class="alert-text">Protocolos <b>transversales</b> que aplican a todas las divisiones del rancho. Son la base operativa compartida.</span></div>
+<div class="proto-section san" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">💧</span>
+      <div style="flex:1"><div class="proto-name">SOP — Agua del Ganado (Revisión Diaria)</div><div style="font-size:11px;color:var(--muted)">Tarea #1 del día · Todos los predios · Primera hora de la mañana</div></div>
+      <span class="tag tag-b">Diario</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="rule">⚠️ Esta es LA tarea #1 de todo el equipo de campo. Sin agua, el ganado muere en horas. No hay excusa para no revisarla a primera hora.</div>
+      <div class="g2">
+        <div>
+          <div class="proto-item"><span class="proto-item-icon">⏰</span><div><div class="proto-item-title">Primera hora de la mañana — TODOS los días</div><div class="proto-item-desc">Sin excepción. Incluyendo domingos y días festivos.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">✅</span><div><div class="proto-item-title">Verificar nivel de agua en cada bebedero</div><div class="proto-item-desc">¿Hay agua suficiente para el hato? ¿El ganado puede acceder sin problemas?</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🔍</span><div><div class="proto-item-title">Revisar funcionamiento del sistema</div><div class="proto-item-desc">Flotadores, válvulas, bombas de rebombeo, líneas de conducción. Detectar fugas.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">📱</span><div><div class="proto-item-title">Reportar fallas de inmediato</div><div class="proto-item-desc">Cualquier falla se reporta al Gerente Operativo (Julio) ese mismo momento. Reparación es URGENTE.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">📋</span><div><div class="proto-item-title">Registrar en Notion: Inventario de Fallas de Agua</div><div class="proto-item-desc">Base viva en Notion para dar seguimiento a fallas recurrentes y programar mantenimiento preventivo.</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px">Predios y responsables:</div>
+          <div class="row"><span class="row-label">Terrenates Bajo</span><span class="row-val">Caporal Armando</span></div>
+          <div class="row"><span class="row-label">Predio Maynes (Cactus)</span><span class="row-val">Caporal Alfredo</span></div>
+          <div class="row"><span class="row-label">Supervisión</span><span class="row-val">Gerente Operativo: Julio Ochoa</span></div>
+          <hr style="border-color:var(--border);margin:10px 0">
+          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px">Infraestructura hídrica pendiente de mapear:</div>
+          <div class="row"><span class="row-label">Mapa de conducción de agua</span><span class="ph">🔄 levantar en campo</span></div>
+          <div class="row"><span class="row-label">Inventario de bebederos</span><span class="ph">🔄 con Julio</span></div>
+          <div class="row"><span class="row-label">Estado bomba de rebombeo</span><span class="ph">🔄 verificar</span></div>
+          <div class="row"><span class="row-label">Domingo</span><span style="font-size:12px">Tareas de campo se limitan a agua + cámaras trampa</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="proto-section san" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">💉</span>
+      <div style="flex:1"><div class="proto-name">Protocolo Sanitario — Todo el Hato</div><div style="font-size:11px;color:var(--muted)">2 rondas/año · Viral + Clostridial + MultiMin 90 · Aplica a todas las divisiones</div></div>
+      <span class="tag tag-b">Todo el rancho</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="rule">⚠️ REGLA ABSOLUTA: Vacunar SIEMPRE ≥ 15 días ANTES de cualquier IATF. Aplicar viral o clostridial dentro de los 15 días previos puede afectar la sincronización y la concepción.</div>
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Ronda 1 — Pre-IATF (Hato Registro ~16 mar · Hato Comercial ~10 ago)</div>
+          <div class="proto-item"><span class="proto-item-icon">🦠</span><div><div class="proto-item-title">Vacuna Viral</div><div class="proto-item-desc">IBR (rinotraqueítis bovina infecciosa) · BVD (diarrea viral bovina) · PI3 · BRSV. Aplicar IM según dosis del fabricante.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🧫</span><div><div class="proto-item-title">Vacuna Clostridial</div><div class="proto-item-desc">Previene clostridiosis (mancha, carbón sintomático, botulismo, enterotoxemia). Aplicar IM o SC según producto.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">💎</span><div><div class="proto-item-title">MultiMin 90 — Multimineral inyectable</div><div class="proto-item-desc">Zinc (Zn) · Cobre (Cu) · Manganeso (Mn) · Selenio (Se). Inyectable. Cubre deficiencias de minerales traza en épocas de mayor demanda.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🐛</span><div><div class="proto-item-title">Desparasitación</div><div class="proto-item-desc">Aplicar en la misma manga aprovechando el movimiento. <span class="ph">🔄 producto y dosis con veterinario</span></div></div></div>
+          <hr style="border-color:var(--border);margin:10px 0">
+          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin:10px 0 8px">Ronda 2 — Mismas 4 aplicaciones</div>
+          <div class="row"><span class="row-label">Hato comercial</span><span class="ph">🔄 fecha exacta · ~ago-sep 2026</span></div>
+          <div class="row"><span class="row-label">Hato registro</span><span class="ph">🔄 fecha exacta · ~ago-sep 2026</span></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Crías — Protocolo Especial</div>
+          <div class="proto-item"><span class="proto-item-icon">🐄</span><div><div class="proto-item-title">Primera vacunación</div><div class="proto-item-desc">Vacunar desde chicas, lo más temprano posible (primeras semanas de vida). El calostro da protección pasiva, pero la vacuna activa el sistema inmune propio.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🔄</span><div><div class="proto-item-title">Refuerzo a los ~5 meses de edad</div><div class="proto-item-desc">ANTES del destete (que ocurre a ~7 meses / ~205 días). El refuerzo asegura que la cría llegue al destete con sistema inmune fuerte para soportar el estrés del destete.</div></div></div>
+          <hr style="border-color:var(--border);margin:10px 0">
+          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Reglas de campo</div>
+          <div class="proto-item"><span class="proto-item-icon">👁️</span><div><div class="proto-item-title">Revisión visual diaria</div><div class="proto-item-desc">Animal que se vea malo → reporte el mismo día al gerente.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">📋</span><div><div class="proto-item-title">Bitácora de tratamientos</div><div class="proto-item-desc">Cada tratamiento: fecha · # arete · diagnóstico · medicamento · dosis · quién autoriza (veterinario). Registro permanente.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🚫</span><div><div class="proto-item-title">Sin hormonas. Sin antibióticos preventivos.</div><div class="proto-item-desc">Regla absoluta de Terrenates. Uso terapéutico SOLO con autorización del veterinario y registro en bitácora.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="proto-section nut" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🌾</span>
+      <div style="flex:1"><div class="proto-name">Protocolo de Suplementación</div><div style="font-size:11px;color:var(--muted)">~275 días de seca · oct–16 jul · Aplica a todas las divisiones</div></div>
+      <span class="tag tag-a">Estacional</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Ventana de suplementación</div>
+          <div style="background:var(--amber-bg);border-radius:8px;padding:12px;margin-bottom:12px">
+            <div style="font-size:13px;font-weight:700;color:var(--amber)">ÉPOCA SECA · ~275 días</div>
+            <div style="font-size:12px;color:var(--text);margin-top:4px">1ª–2ª semana de <b>octubre</b> → <b>~16 de julio</b> del año siguiente</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px">Cuando el forraje deja de crecer hasta que llegan las lluvias</div>
+          </div>
+          <div style="background:var(--green-bg);border-radius:8px;padding:12px;margin-bottom:12px">
+            <div style="font-size:13px;font-weight:700;color:var(--green)">ÉPOCA VERDE · ~90 días</div>
+            <div style="font-size:12px;color:var(--text);margin-top:4px"><b>~16 jul</b> → 1ª–2ª semana de <b>octubre</b></div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px">Sin suplemento proteico/energético — el forraje verde cubre los requerimientos</div>
+          </div>
+          <div class="proto-item"><span class="proto-item-icon">💊</span><div><div class="proto-item-title">Mineral + sal marina — TODO el año</div><div class="proto-item-desc">A todos los animales del rancho sin excepción. No es estacional. El mineral va siempre aunque no haya suplemento proteico.</div></div></div>
+        </div>
+        <div>
+          <div class="proto-item"><span class="proto-item-icon">🍼</span><div><div class="proto-item-title">Creep feeding — crías comercial y registro</div><div class="proto-item-desc">Desde los 3 meses de edad hasta el destete (~205 d / ~7 meses). Corrales de acceso exclusivo para la cría (vacas no entran).</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🍼</span><div><div class="proto-item-title">Refuerzo pre-parto</div><div class="proto-item-desc">Incrementar el suplemento en los meses finales de gestación. CRÍTICO para el hato de registro que pare en plena seca (ene–mar).</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">⭐</span><div><div class="proto-item-title">Caso especial: Registro Hereford</div><div class="proto-item-desc">Pare en época seca (meta: primer becerro 21-mar). El forraje está seco → suplementación REFORZADA en gestación final y lactancia. Es el costo operativo de la estrategia de parto de primavera.</div></div></div>
+          <hr style="border-color:var(--border);margin:10px 0">
+          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px">Especificaciones por definir:</div>
+          <div class="row"><span class="row-label">Suplemento proteico repasto</span><span class="ph">🔄 14/16/18% · con nutriólogo</span></div>
+          <div class="row"><span class="row-label">Suplemento cría comercial seca</span><span class="ph">🔄 fórmula con Dr. Domínguez</span></div>
+          <div class="row"><span class="row-label">Suplemento registro gestación</span><span class="ph">🔄 fórmula reforzada pre-parto</span></div>
+          <div class="row"><span class="row-label">Costo/animal/día seca</span><span class="ph">🔄 calcular con presupuesto</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="proto-section rep" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🌵</span>
+      <div style="flex:1"><div class="proto-name">Plan de Pastoreo y Rotación (Anual)</div><div style="font-size:11px;color:var(--muted)">Post-lluvias ~oct · Rotación continua · Cerco eléctrico · Carta de pastoreo</div></div>
+      <span class="tag tag-g">Activo</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="rule">⚠️ REGLA: Ningún potrero ocupado más de 3 días. Rotación continua con cerco eléctrico. Violar esta regla degrada el pastizal.</div>
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Diseño del plan (cada octubre)</div>
+          <div class="proto-item"><span class="proto-item-icon">1️⃣</span><div><div class="proto-item-title">Inventario del hato</div><div class="proto-item-desc">Contar todo el ganado por categoría (vacas, becerros, toros, repasto). Calcular Unidades Animal (UA) totales.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">2️⃣</span><div><div class="proto-item-title">Evaluación de potreros y aforo</div><div class="proto-item-desc">Recorrer todos los potreros. Estimar disponibilidad de forraje por potrero. Condición del pastizal post-lluvias.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">3️⃣</span><div><div class="proto-item-title">Ajuste de carga animal</div><div class="proto-item-desc">Coeficiente de agostadero: ~10.3 ha/UA. Calcular carga máxima sostenible por predio. Ajustar número de animales si es necesario.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">4️⃣</span><div><div class="proto-item-title">Diseño de la rotación</div><div class="proto-item-desc">Definir secuencia de potreros, días de ocupación (máx. 3), días de descanso (mínimo 60-90 días). Cerco eléctrico para control.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">5️⃣</span><div><div class="proto-item-title">Cargar en la Carta de Pastoreo</div><div class="proto-item-desc">TABLA DE PASTOREO TERRENATES (Excel en Drive). El gerente la actualiza DIARIO: dónde está el ganado, qué día de ocupación van.</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Seguimiento diario</div>
+          <div class="row"><span class="row-label">Carta de pastoreo</span><span style="font-size:12px">Actualizar diario · Drive: TABLA DE PASTOREO TERRENATES 2025 R4F.xlsx</span></div>
+          <div class="row"><span class="row-label">Reunión de seguimiento</span><span class="row-val">Lunes · con gerente</span></div>
+          <div class="row"><span class="row-label">Coef. agostadero T. Bajo</span><span class="row-val">~10.3 ha/UA</span></div>
+          <div class="row"><span class="row-label">Herramienta rotación</span><span class="row-val">Cerco eléctrico</span></div>
+          <div class="row"><span class="row-label">Días máx en potrero</span><span class="row-val">3 días</span></div>
+          <div class="row"><span class="row-label">Días mínimo de descanso</span><span class="ph">🔄 definir con agrónomo</span></div>
+          <hr style="border-color:var(--border);margin:10px 0">
+          <div class="row"><span class="row-label">Pendiente: inventario potreros Maynes</span><span class="ph">🔄 re-inventario Julio</span></div>
+          <div class="row"><span class="row-label">Pendiente: mapa agua en campo</span><span class="ph">🔄 levantar</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="proto-section san" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">📋</span>
+      <div style="flex:1"><div class="proto-name">SOP — Producción Animal e Incidencias del Hato</div><div style="font-size:11px;color:var(--muted)">Nacimientos · Muertes · Depredadores · Brotes · Lluvia · Base Notion activa</div></div>
+      <span class="tag tag-b">Permanente</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Eventos que se registran</div>
+          <div class="proto-item"><span class="proto-item-icon">🐣</span><div><div class="proto-item-title">Nacimientos</div><div class="proto-item-desc">Fecha · hora · # arete madre · # arete cría · sexo · peso al nacer · condición del parto · observaciones.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">💀</span><div><div class="proto-item-title">Muertes — FOTO OBLIGATORIA</div><div class="proto-item-desc">Foto del animal muerto con timestamp (app Timestamp Camera). Fecha · # arete · posible causa · quién reporta. NUNCA enterrar o tirar sin fotografiar primero.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🐺</span><div><div class="proto-item-title">Ataques de depredador</div><div class="proto-item-desc">Foto con timestamp. Descripción del ataque. Número de animales afectados. Acción tomada.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🤒</span><div><div class="proto-item-title">Brotes o enfermedades</div><div class="proto-item-desc">Síntomas observados · número de animales afectados · acción inmediata · contactar veterinario.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🌧️</span><div><div class="proto-item-title">Lluvia</div><div class="proto-item-desc">Reporte INMEDIATO al grupo WhatsApp cuando llueve en el rancho. Milímetros si hay pluviómetro. Acumulado semanal → base Monitoreo Climático en Notion.</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Herramientas</div>
+          <div class="row"><span class="row-label">Base principal</span><span style="font-size:12px">Notion: 🐄 Producción Animal e Incidencias del Hato</span></div>
+          <div class="row"><span class="row-label">Monitoreo climático</span><span style="font-size:12px">Notion: 🌧️ Monitoreo Climático (acumulado semanal)</span></div>
+          <div class="row"><span class="row-label">App fotos</span><span class="row-val">Timestamp Camera (con fecha y hora visibles)</span></div>
+          <div class="row"><span class="row-label">Notificación lluvia</span><span class="row-val">WhatsApp al momento</span></div>
+          <hr style="border-color:var(--border);margin:10px 0">
+          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px">Cámaras trampa (quincenal, ideal domingos):</div>
+          <div class="proto-item"><span class="proto-item-icon">📸</span><div><div class="proto-item-title">SOP — Cámaras trampa y comederos de fauna</div><div class="proto-item-desc">Quincenal (ideal domingos). Recolectar fotos · cambiar pilas · verificar funcionamiento · reportar daño con foto. Las cámaras están en los comederos de venados (semilla/algodón/maíz).</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /sop-div-rancho -->
+
+  <!-- ══ CRÍA COMERCIAL ══ -->
+  <div id="sop-div-cria" class="sop-div-panel">
+    <div class="alert g" style="margin:10px 0 6px"><span>🐮</span><span class="alert-text"><b>Cría Comercial</b> · 157 vientres activos · Terrenates Bajo + Cactus · Empadre controlado 63 días · Caporal: Armando</span></div>
+<div class="proto-section rep" style="margin-top:10px">
     <div class="proto-header" onclick="toggleProto(this)">
       <span class="proto-icon-big">🧬</span>
       <div style="flex:1"><div class="proto-name">SOP — IATF Comercial (Ovsynch + CIDR)</div><div style="font-size:11px;color:var(--muted)">Hato comercial · ~sep · Semen fresco · 157 vientres activos jun-2026</div></div>
@@ -3104,8 +3291,82 @@ function switchCalTab(tab) {
     </div>
   </div>
 
-  <!-- ── IATF Registro ── -->
-  <div class="proto-section rep" style="margin-top:8px">
+<div class="proto-section san" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🐣</span>
+      <div style="flex:1"><div class="proto-name">SOP — Partos y Aretado SINIIGA</div><div style="font-size:11px;color:var(--muted)">Aplicar a todo nacimiento · Cría comercial y registro · Pico: 5–14 jul 2026</div></div>
+      <span class="tag tag-r">URGENTE</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="rule">⚠️ Pico de pariciones inminente: 5–14 jul 2026 (~231 becerros comerciales). Revisión VARIAS veces al día. Bitácora de nacimientos lista y en campo.</div>
+      <div class="g2">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Protocolo en campo</div>
+          <div class="proto-item"><span class="proto-item-icon">👁️</span><div><div class="proto-item-title">1. Revisión de parición</div><div class="proto-item-desc">Revisión 3–4 veces al día durante el pico. Identificar vacas en trabajo de parto. Intervenir SOLO si hay distocia (>2 horas sin avance).</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🏷️</span><div><div class="proto-item-title">2. Aretado SINIIGA — inmediato</div><div class="proto-item-desc">Aretar en las primeras horas de nacido. Arete amarillo en oreja derecha. Número de 12 dígitos: 00 + 08 (Chihuahua) + folio individual. Registrar: fecha, hora, peso al nacer, sexo, madre (# arete).</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">🍼</span><div><div class="proto-item-title">3. Confirmar calostro</div><div class="proto-item-desc">La cría DEBE mamar calostro en las primeras 6 horas de vida. Si no mama sola, ordeñar la vaca y dar calostro a mano. El calostro es inmunidad pasiva — es CRÍTICO.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">📋</span><div><div class="proto-item-title">4. Registro en Bitácora de Partos</div><div class="proto-item-desc">Anotar: fecha y hora de parto, # arete vaca madre, # arete cría, sexo, peso al nacer, condición del parto (normal/asistido/distocia), observaciones.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">💉</span><div><div class="proto-item-title">5. Tratamiento profiláctico cría</div><div class="proto-item-desc">Yodo en ombligo al nacer. Primer vacunación de la cría según protocolo sanitario.</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Aretado SINIIGA — Estructura del número</div>
+          <div style="background:var(--brand);color:#fff;border-radius:8px;padding:12px;font-family:monospace;font-size:13px;margin-bottom:10px;text-align:center">
+            <div style="font-size:18px;font-weight:700;letter-spacing:4px">00 · 08 · XXXXXXXX</div>
+            <div style="font-size:11px;opacity:.7;margin-top:6px">País (2) · Chihuahua (2) · Folio individual (8) = 12 dígitos</div>
+          </div>
+          <div class="row"><span class="row-label">País</span><span class="row-val">00 = México</span></div>
+          <div class="row"><span class="row-label">Estado</span><span class="row-val">08 = Chihuahua</span></div>
+          <div class="row"><span class="row-label">Folio individual</span><span class="ph">🔄 folio actual disponible</span></div>
+          <div class="row"><span class="row-label">Aretes disponibles</span><span class="ph">🔄 inventario</span></div>
+          <div class="row"><span class="row-label">Responsable de aretado</span><span class="ph">🔄 definir</span></div>
+          <hr style="border-color:var(--border);margin:10px 0">
+          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px">Criterios de descarte (vaca madre):</div>
+          <div class="row"><span class="row-label">Zorra / mala criadora</span><span class="row-val">→ Lista de descarte</span></div>
+          <div class="row"><span class="row-label">Rechazo del becerro</span><span class="row-val">→ Intervención y evaluación</span></div>
+          <div class="row"><span class="row-label">Mala ubre</span><span class="row-val">→ Lista de descarte</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="proto-section rep" style="margin-top:8px">
+    <div class="proto-header" onclick="toggleProto(this)">
+      <span class="proto-icon-big">🌾</span>
+      <div style="flex:1"><div class="proto-name">Protocolo de Destete y Preacondicionamiento</div><div style="font-size:11px;color:var(--muted)">Comercial y registro · ~205 días / ~7 meses · Notion: Protocolo de Destete</div></div>
+      <span class="tag tag-b">Próximo: ene–feb 2027</span>&nbsp;<span class="paso-arrow">▼</span>
+    </div>
+    <div class="proto-body">
+      <div class="g2">
+        <div>
+          <div class="proto-item"><span class="proto-item-icon">1️⃣</span><div><div class="proto-item-title">Edad de destete</div><div class="proto-item-desc">~205 días (aproximadamente 7 meses de edad). Peso ajustado al destete.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">2️⃣</span><div><div class="proto-item-title">Evaluación de peso</div><div class="proto-item-desc">Si la cría <b>llegó al peso ideal</b> → pasa directo a repasto.<br>Si la cría <b>NO llegó al peso ideal</b> → entra a preacondicionamiento en corrales.</div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">3️⃣</span><div><div class="proto-item-title">Preacondicionamiento en corrales (si aplica)</div><div class="proto-item-desc">Objetivo: subir defensas, alimentación de alta calidad, pasar la merma post-destete. Solo cuando esté preacondicionada pasa a repasto.<br><span class="ph">🔄 Días y dieta: con veterinario y Dr. Domínguez</span></div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">4️⃣</span><div><div class="proto-item-title">Protocolo sanitario del destete</div><div class="proto-item-desc"><span class="ph">🔄 Definir con veterinario: vacunas, booster, desparasitación en destete</span></div></div></div>
+          <div class="proto-item"><span class="proto-item-icon">5️⃣</span><div><div class="proto-item-title">Registro y clasificación</div><div class="proto-item-desc">Pesar y clasificar cada cría: sexo, peso, destino (registro / cría de reemplazo / engorda / venta).</div></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px">Valores pendientes de definir:</div>
+          <div class="row"><span class="row-label">Peso ideal destete comercial (kg)</span><span class="ph">🔄 con nutriólogo</span></div>
+          <div class="row"><span class="row-label">Peso ideal destete registro (kg)</span><span class="ph">🔄 con nutriólogo</span></div>
+          <div class="row"><span class="row-label">Días preacondicionamiento</span><span class="ph">🔄 con veterinario</span></div>
+          <div class="row"><span class="row-label">Dieta preacondicionamiento</span><span class="ph">🔄 con Dr. Domínguez</span></div>
+          <div class="row"><span class="row-label">Vacunas en destete</span><span class="ph">🔄 protocolo con vet</span></div>
+          <hr style="border-color:var(--border);margin:10px 0">
+          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px">Política de selección de reemplazos:</div>
+          <div class="row"><span class="row-label">Vacas de reemplazo</span><span style="font-size:12px">Las mejores vaquillas del año se quedan como reemplazo de las vacías/descarte</span></div>
+          <div class="row"><span class="row-label">Selección por</span><span style="font-size:12px">Peso · calidad de ubre · temperamento · conformación · origen (madre)</span></div>
+          <div class="row"><span class="row-label">Machos destino</span><span style="font-size:12px">Repasto → engorda → venta o carnicería</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /sop-div-cria -->
+
+  <!-- ══ REGISTRO HEREFORD ══ -->
+  <div id="sop-div-registro" class="sop-div-panel">
+    <div class="alert b" style="margin:10px 0 6px"><span>⭐</span><span class="alert-text"><b>Registro Hereford</b> · Semen congelado · Criterios de Eficiencia Funcional · IATF realizada 31 mar 2026 · Pariciones ene–mar 2027</span></div>
+<div class="proto-section rep" style="margin-top:8px">
     <div class="proto-header" onclick="toggleProto(this)">
       <span class="proto-icon-big">⭐</span>
       <div style="flex:1"><div class="proto-name">SOP — IATF Registro Hereford</div><div style="font-size:11px;color:var(--muted)">Hato de registro · 31 mar 2026 · Semen congelado · Criterios Eficiencia Funcional</div></div>
@@ -3146,153 +3407,14 @@ function switchCalTab(tab) {
     </div>
   </div>
 
-  <!-- ── Partos y Aretado ── -->
-  <div class="proto-section san" style="margin-top:8px">
-    <div class="proto-header" onclick="toggleProto(this)">
-      <span class="proto-icon-big">🐣</span>
-      <div style="flex:1"><div class="proto-name">SOP — Partos y Aretado SINIIGA</div><div style="font-size:11px;color:var(--muted)">Aplicar a todo nacimiento · Cría comercial y registro · Pico: 5–14 jul 2026</div></div>
-      <span class="tag tag-r">URGENTE</span>&nbsp;<span class="paso-arrow">▼</span>
-    </div>
-    <div class="proto-body">
-      <div class="rule">⚠️ Pico de pariciones inminente: 5–14 jul 2026 (~231 becerros comerciales). Revisión VARIAS veces al día. Bitácora de nacimientos lista y en campo.</div>
-      <div class="g2">
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Protocolo en campo</div>
-          <div class="proto-item"><span class="proto-item-icon">👁️</span><div><div class="proto-item-title">1. Revisión de parición</div><div class="proto-item-desc">Revisión 3–4 veces al día durante el pico. Identificar vacas en trabajo de parto. Intervenir SOLO si hay distocia (>2 horas sin avance).</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">🏷️</span><div><div class="proto-item-title">2. Aretado SINIIGA — inmediato</div><div class="proto-item-desc">Aretar en las primeras horas de nacido. Arete amarillo en oreja derecha. Número de 12 dígitos: 00 + 08 (Chihuahua) + folio individual. Registrar: fecha, hora, peso al nacer, sexo, madre (# arete).</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">🍼</span><div><div class="proto-item-title">3. Confirmar calostro</div><div class="proto-item-desc">La cría DEBE mamar calostro en las primeras 6 horas de vida. Si no mama sola, ordeñar la vaca y dar calostro a mano. El calostro es inmunidad pasiva — es CRÍTICO.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">📋</span><div><div class="proto-item-title">4. Registro en Bitácora de Partos</div><div class="proto-item-desc">Anotar: fecha y hora de parto, # arete vaca madre, # arete cría, sexo, peso al nacer, condición del parto (normal/asistido/distocia), observaciones.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">💉</span><div><div class="proto-item-title">5. Tratamiento profiláctico cría</div><div class="proto-item-desc">Yodo en ombligo al nacer. Primer vacunación de la cría según protocolo sanitario.</div></div></div>
-        </div>
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Aretado SINIIGA — Estructura del número</div>
-          <div style="background:var(--brand);color:#fff;border-radius:8px;padding:12px;font-family:monospace;font-size:13px;margin-bottom:10px;text-align:center">
-            <div style="font-size:18px;font-weight:700;letter-spacing:4px">00 · 08 · XXXXXXXX</div>
-            <div style="font-size:11px;opacity:.7;margin-top:6px">País (2) · Chihuahua (2) · Folio individual (8) = 12 dígitos</div>
-          </div>
-          <div class="row"><span class="row-label">País</span><span class="row-val">00 = México</span></div>
-          <div class="row"><span class="row-label">Estado</span><span class="row-val">08 = Chihuahua</span></div>
-          <div class="row"><span class="row-label">Folio individual</span><span class="ph">🔄 folio actual disponible</span></div>
-          <div class="row"><span class="row-label">Aretes disponibles</span><span class="ph">🔄 inventario</span></div>
-          <div class="row"><span class="row-label">Responsable de aretado</span><span class="ph">🔄 definir</span></div>
-          <hr style="border-color:var(--border);margin:10px 0">
-          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px">Criterios de descarte (vaca madre):</div>
-          <div class="row"><span class="row-label">Zorra / mala criadora</span><span class="row-val">→ Lista de descarte</span></div>
-          <div class="row"><span class="row-label">Rechazo del becerro</span><span class="row-val">→ Intervención y evaluación</span></div>
-          <div class="row"><span class="row-label">Mala ubre</span><span class="row-val">→ Lista de descarte</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <div class="alert b" style="margin:10px 0 6px"><span>🐣</span><span class="alert-text"><b>Partos y Aretado:</b> mismo protocolo que Cría Comercial — ver pestaña 🐮 Cría Comercial.</span></div>
 
-  <!-- ── Sanitario ── -->
-  <div class="proto-section san" style="margin-top:8px">
-    <div class="proto-header" onclick="toggleProto(this)">
-      <span class="proto-icon-big">💉</span>
-      <div style="flex:1"><div class="proto-name">Protocolo Sanitario — Todo el Hato</div><div style="font-size:11px;color:var(--muted)">2 rondas/año · Viral + Clostridial + MultiMin 90 · Aplica a todas las divisiones</div></div>
-      <span class="tag tag-b">Todo el rancho</span>&nbsp;<span class="paso-arrow">▼</span>
-    </div>
-    <div class="proto-body">
-      <div class="rule">⚠️ REGLA ABSOLUTA: Vacunar SIEMPRE ≥ 15 días ANTES de cualquier IATF. Aplicar viral o clostridial dentro de los 15 días previos puede afectar la sincronización y la concepción.</div>
-      <div class="g2">
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Ronda 1 — Pre-IATF (Hato Registro ~16 mar · Hato Comercial ~10 ago)</div>
-          <div class="proto-item"><span class="proto-item-icon">🦠</span><div><div class="proto-item-title">Vacuna Viral</div><div class="proto-item-desc">IBR (rinotraqueítis bovina infecciosa) · BVD (diarrea viral bovina) · PI3 · BRSV. Aplicar IM según dosis del fabricante.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">🧫</span><div><div class="proto-item-title">Vacuna Clostridial</div><div class="proto-item-desc">Previene clostridiosis (mancha, carbón sintomático, botulismo, enterotoxemia). Aplicar IM o SC según producto.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">💎</span><div><div class="proto-item-title">MultiMin 90 — Multimineral inyectable</div><div class="proto-item-desc">Zinc (Zn) · Cobre (Cu) · Manganeso (Mn) · Selenio (Se). Inyectable. Cubre deficiencias de minerales traza en épocas de mayor demanda.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">🐛</span><div><div class="proto-item-title">Desparasitación</div><div class="proto-item-desc">Aplicar en la misma manga aprovechando el movimiento. <span class="ph">🔄 producto y dosis con veterinario</span></div></div></div>
-          <hr style="border-color:var(--border);margin:10px 0">
-          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin:10px 0 8px">Ronda 2 — Mismas 4 aplicaciones</div>
-          <div class="row"><span class="row-label">Hato comercial</span><span class="ph">🔄 fecha exacta · ~ago-sep 2026</span></div>
-          <div class="row"><span class="row-label">Hato registro</span><span class="ph">🔄 fecha exacta · ~ago-sep 2026</span></div>
-        </div>
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Crías — Protocolo Especial</div>
-          <div class="proto-item"><span class="proto-item-icon">🐄</span><div><div class="proto-item-title">Primera vacunación</div><div class="proto-item-desc">Vacunar desde chicas, lo más temprano posible (primeras semanas de vida). El calostro da protección pasiva, pero la vacuna activa el sistema inmune propio.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">🔄</span><div><div class="proto-item-title">Refuerzo a los ~5 meses de edad</div><div class="proto-item-desc">ANTES del destete (que ocurre a ~7 meses / ~205 días). El refuerzo asegura que la cría llegue al destete con sistema inmune fuerte para soportar el estrés del destete.</div></div></div>
-          <hr style="border-color:var(--border);margin:10px 0">
-          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Reglas de campo</div>
-          <div class="proto-item"><span class="proto-item-icon">👁️</span><div><div class="proto-item-title">Revisión visual diaria</div><div class="proto-item-desc">Animal que se vea malo → reporte el mismo día al gerente.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">📋</span><div><div class="proto-item-title">Bitácora de tratamientos</div><div class="proto-item-desc">Cada tratamiento: fecha · # arete · diagnóstico · medicamento · dosis · quién autoriza (veterinario). Registro permanente.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">🚫</span><div><div class="proto-item-title">Sin hormonas. Sin antibióticos preventivos.</div><div class="proto-item-desc">Regla absoluta de Terrenates. Uso terapéutico SOLO con autorización del veterinario y registro en bitácora.</div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </div><!-- /sop-div-registro -->
 
-  <!-- ── Suplementación ── -->
-  <div class="proto-section nut" style="margin-top:8px">
-    <div class="proto-header" onclick="toggleProto(this)">
-      <span class="proto-icon-big">🌾</span>
-      <div style="flex:1"><div class="proto-name">Protocolo de Suplementación</div><div style="font-size:11px;color:var(--muted)">~275 días de seca · oct–16 jul · Aplica a todas las divisiones</div></div>
-      <span class="tag tag-a">Estacional</span>&nbsp;<span class="paso-arrow">▼</span>
-    </div>
-    <div class="proto-body">
-      <div class="g2">
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Ventana de suplementación</div>
-          <div style="background:var(--amber-bg);border-radius:8px;padding:12px;margin-bottom:12px">
-            <div style="font-size:13px;font-weight:700;color:var(--amber)">ÉPOCA SECA · ~275 días</div>
-            <div style="font-size:12px;color:var(--text);margin-top:4px">1ª–2ª semana de <b>octubre</b> → <b>~16 de julio</b> del año siguiente</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:4px">Cuando el forraje deja de crecer hasta que llegan las lluvias</div>
-          </div>
-          <div style="background:var(--green-bg);border-radius:8px;padding:12px;margin-bottom:12px">
-            <div style="font-size:13px;font-weight:700;color:var(--green)">ÉPOCA VERDE · ~90 días</div>
-            <div style="font-size:12px;color:var(--text);margin-top:4px"><b>~16 jul</b> → 1ª–2ª semana de <b>octubre</b></div>
-            <div style="font-size:11px;color:var(--muted);margin-top:4px">Sin suplemento proteico/energético — el forraje verde cubre los requerimientos</div>
-          </div>
-          <div class="proto-item"><span class="proto-item-icon">💊</span><div><div class="proto-item-title">Mineral + sal marina — TODO el año</div><div class="proto-item-desc">A todos los animales del rancho sin excepción. No es estacional. El mineral va siempre aunque no haya suplemento proteico.</div></div></div>
-        </div>
-        <div>
-          <div class="proto-item"><span class="proto-item-icon">🍼</span><div><div class="proto-item-title">Creep feeding — crías comercial y registro</div><div class="proto-item-desc">Desde los 3 meses de edad hasta el destete (~205 d / ~7 meses). Corrales de acceso exclusivo para la cría (vacas no entran).</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">🍼</span><div><div class="proto-item-title">Refuerzo pre-parto</div><div class="proto-item-desc">Incrementar el suplemento en los meses finales de gestación. CRÍTICO para el hato de registro que pare en plena seca (ene–mar).</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">⭐</span><div><div class="proto-item-title">Caso especial: Registro Hereford</div><div class="proto-item-desc">Pare en época seca (meta: primer becerro 21-mar). El forraje está seco → suplementación REFORZADA en gestación final y lactancia. Es el costo operativo de la estrategia de parto de primavera.</div></div></div>
-          <hr style="border-color:var(--border);margin:10px 0">
-          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px">Especificaciones por definir:</div>
-          <div class="row"><span class="row-label">Suplemento proteico repasto</span><span class="ph">🔄 14/16/18% · con nutriólogo</span></div>
-          <div class="row"><span class="row-label">Suplemento cría comercial seca</span><span class="ph">🔄 fórmula con Dr. Domínguez</span></div>
-          <div class="row"><span class="row-label">Suplemento registro gestación</span><span class="ph">🔄 fórmula reforzada pre-parto</span></div>
-          <div class="row"><span class="row-label">Costo/animal/día seca</span><span class="ph">🔄 calcular con presupuesto</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Destete ── -->
-  <div class="proto-section rep" style="margin-top:8px">
-    <div class="proto-header" onclick="toggleProto(this)">
-      <span class="proto-icon-big">🌾</span>
-      <div style="flex:1"><div class="proto-name">Protocolo de Destete y Preacondicionamiento</div><div style="font-size:11px;color:var(--muted)">Comercial y registro · ~205 días / ~7 meses · Notion: Protocolo de Destete</div></div>
-      <span class="tag tag-b">Próximo: ene–feb 2027</span>&nbsp;<span class="paso-arrow">▼</span>
-    </div>
-    <div class="proto-body">
-      <div class="g2">
-        <div>
-          <div class="proto-item"><span class="proto-item-icon">1️⃣</span><div><div class="proto-item-title">Edad de destete</div><div class="proto-item-desc">~205 días (aproximadamente 7 meses de edad). Peso ajustado al destete.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">2️⃣</span><div><div class="proto-item-title">Evaluación de peso</div><div class="proto-item-desc">Si la cría <b>llegó al peso ideal</b> → pasa directo a repasto.<br>Si la cría <b>NO llegó al peso ideal</b> → entra a preacondicionamiento en corrales.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">3️⃣</span><div><div class="proto-item-title">Preacondicionamiento en corrales (si aplica)</div><div class="proto-item-desc">Objetivo: subir defensas, alimentación de alta calidad, pasar la merma post-destete. Solo cuando esté preacondicionada pasa a repasto.<br><span class="ph">🔄 Días y dieta: con veterinario y Dr. Domínguez</span></div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">4️⃣</span><div><div class="proto-item-title">Protocolo sanitario del destete</div><div class="proto-item-desc"><span class="ph">🔄 Definir con veterinario: vacunas, booster, desparasitación en destete</span></div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">5️⃣</span><div><div class="proto-item-title">Registro y clasificación</div><div class="proto-item-desc">Pesar y clasificar cada cría: sexo, peso, destino (registro / cría de reemplazo / engorda / venta).</div></div></div>
-        </div>
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px">Valores pendientes de definir:</div>
-          <div class="row"><span class="row-label">Peso ideal destete comercial (kg)</span><span class="ph">🔄 con nutriólogo</span></div>
-          <div class="row"><span class="row-label">Peso ideal destete registro (kg)</span><span class="ph">🔄 con nutriólogo</span></div>
-          <div class="row"><span class="row-label">Días preacondicionamiento</span><span class="ph">🔄 con veterinario</span></div>
-          <div class="row"><span class="row-label">Dieta preacondicionamiento</span><span class="ph">🔄 con Dr. Domínguez</span></div>
-          <div class="row"><span class="row-label">Vacunas en destete</span><span class="ph">🔄 protocolo con vet</span></div>
-          <hr style="border-color:var(--border);margin:10px 0">
-          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px">Política de selección de reemplazos:</div>
-          <div class="row"><span class="row-label">Vacas de reemplazo</span><span style="font-size:12px">Las mejores vaquillas del año se quedan como reemplazo de las vacías/descarte</span></div>
-          <div class="row"><span class="row-label">Selección por</span><span style="font-size:12px">Peso · calidad de ubre · temperamento · conformación · origen (madre)</span></div>
-          <div class="row"><span class="row-label">Machos destino</span><span style="font-size:12px">Repasto → engorda → venta o carnicería</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Reciba Repasto ── -->
-  <div class="proto-section rep" style="margin-top:8px">
+  <!-- ══ REPASTO ══ -->
+  <div id="sop-div-repasto" class="sop-div-panel">
+    <div class="alert g" style="margin:10px 0 6px"><span>🌿</span><span class="alert-text"><b>Repasto / Maynes</b> · Desarrolla registro + comercial propio + comprado · Caporal: Alfredo · GDP meta 600–750 g/día</span></div>
+<div class="proto-section rep" style="margin-top:8px">
     <div class="proto-header" onclick="toggleProto(this)">
       <span class="proto-icon-big">🌿</span>
       <div style="flex:1"><div class="proto-name">Protocolo de Reciba — Ganado a Repasto (Mainz/Cactus)</div><div style="font-size:11px;color:var(--muted)">Aplica a ganado comprado externo que entra al Predio Maynes</div></div>
@@ -3323,105 +3445,213 @@ function switchCalTab(tab) {
     </div>
   </div>
 
-  <!-- ── Agua ── -->
-  <div class="proto-section san" style="margin-top:8px">
-    <div class="proto-header" onclick="toggleProto(this)">
-      <span class="proto-icon-big">💧</span>
-      <div style="flex:1"><div class="proto-name">SOP — Agua del Ganado (Revisión Diaria)</div><div style="font-size:11px;color:var(--muted)">Tarea #1 del día · Todos los predios · Primera hora de la mañana</div></div>
-      <span class="tag tag-b">Diario</span>&nbsp;<span class="paso-arrow">▼</span>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Destete a Repasto (flujo de entrada)</div><div style="font-size:11px;color:var(--muted)">Criterios de peso, clasificación y protocolo de traspaso desde Cría Comercial</div></div>
+      <span class="tag tag-a">Pendiente</span>
     </div>
-    <div class="proto-body">
-      <div class="rule">⚠️ Esta es LA tarea #1 de todo el equipo de campo. Sin agua, el ganado muere en horas. No hay excusa para no revisarla a primera hora.</div>
-      <div class="g2">
-        <div>
-          <div class="proto-item"><span class="proto-item-icon">⏰</span><div><div class="proto-item-title">Primera hora de la mañana — TODOS los días</div><div class="proto-item-desc">Sin excepción. Incluyendo domingos y días festivos.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">✅</span><div><div class="proto-item-title">Verificar nivel de agua en cada bebedero</div><div class="proto-item-desc">¿Hay agua suficiente para el hato? ¿El ganado puede acceder sin problemas?</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">🔍</span><div><div class="proto-item-title">Revisar funcionamiento del sistema</div><div class="proto-item-desc">Flotadores, válvulas, bombas de rebombeo, líneas de conducción. Detectar fugas.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">📱</span><div><div class="proto-item-title">Reportar fallas de inmediato</div><div class="proto-item-desc">Cualquier falla se reporta al Gerente Operativo (Julio) ese mismo momento. Reparación es URGENTE.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">📋</span><div><div class="proto-item-title">Registrar en Notion: Inventario de Fallas de Agua</div><div class="proto-item-desc">Base viva en Notion para dar seguimiento a fallas recurrentes y programar mantenimiento preventivo.</div></div></div>
-        </div>
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px">Predios y responsables:</div>
-          <div class="row"><span class="row-label">Terrenates Bajo</span><span class="row-val">Caporal Armando</span></div>
-          <div class="row"><span class="row-label">Predio Maynes (Cactus)</span><span class="row-val">Caporal Alfredo</span></div>
-          <div class="row"><span class="row-label">Supervisión</span><span class="row-val">Gerente Operativo: Julio Ochoa</span></div>
-          <hr style="border-color:var(--border);margin:10px 0">
-          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px">Infraestructura hídrica pendiente de mapear:</div>
-          <div class="row"><span class="row-label">Mapa de conducción de agua</span><span class="ph">🔄 levantar en campo</span></div>
-          <div class="row"><span class="row-label">Inventario de bebederos</span><span class="ph">🔄 con Julio</span></div>
-          <div class="row"><span class="row-label">Estado bomba de rebombeo</span><span class="ph">🔄 verificar</span></div>
-          <div class="row"><span class="row-label">Domingo</span><span style="font-size:12px">Tareas de campo se limitan a agua + cámaras trampa</span></div>
-        </div>
-      </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Pesaje Mensual y Control de GDP</div><div style="font-size:11px;color:var(--muted)">Frecuencia 1×/mes, báscula, registro en Notion, alertas por debajo de meta</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Salida de Repasto (destino engorda/carnicería/venta)</div><div style="font-size:11px;color:var(--muted)">Peso de salida, clasificación por destino, registro de transferencia</div></div>
+      <span class="tag tag-a">Pendiente</span>
     </div>
   </div>
 
-  <!-- ── Pastoreo ── -->
-  <div class="proto-section rep" style="margin-top:8px">
-    <div class="proto-header" onclick="toggleProto(this)">
-      <span class="proto-icon-big">🌵</span>
-      <div style="flex:1"><div class="proto-name">Plan de Pastoreo y Rotación (Anual)</div><div style="font-size:11px;color:var(--muted)">Post-lluvias ~oct · Rotación continua · Cerco eléctrico · Carta de pastoreo</div></div>
-      <span class="tag tag-g">Activo</span>&nbsp;<span class="paso-arrow">▼</span>
+  </div><!-- /sop-div-repasto -->
+
+  <!-- ══ ENGORDA ══ -->
+  <div id="sop-div-engorda" class="sop-div-panel">
+    <div class="alert a" style="margin:10px 0 6px"><span>🏭</span><span class="alert-text"><b>Engorda en Corrales</b> · Dietas formuladas por Dr. David Domínguez · Ciclo 90–120 días · Meta: novillo 600 kg</span></div>
+
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Recepción a Engorda</div><div style="font-size:11px;color:var(--muted)">Pesaje, manejo sanitario completo, asignación de lote y corral, registro en Notion</div></div>
+      <span class="tag tag-a">Pendiente</span>
     </div>
-    <div class="proto-body">
-      <div class="rule">⚠️ REGLA: Ningún potrero ocupado más de 3 días. Rotación continua con cerco eléctrico. Violar esta regla degrada el pastizal.</div>
-      <div class="g2">
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Diseño del plan (cada octubre)</div>
-          <div class="proto-item"><span class="proto-item-icon">1️⃣</span><div><div class="proto-item-title">Inventario del hato</div><div class="proto-item-desc">Contar todo el ganado por categoría (vacas, becerros, toros, repasto). Calcular Unidades Animal (UA) totales.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">2️⃣</span><div><div class="proto-item-title">Evaluación de potreros y aforo</div><div class="proto-item-desc">Recorrer todos los potreros. Estimar disponibilidad de forraje por potrero. Condición del pastizal post-lluvias.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">3️⃣</span><div><div class="proto-item-title">Ajuste de carga animal</div><div class="proto-item-desc">Coeficiente de agostadero: ~10.3 ha/UA. Calcular carga máxima sostenible por predio. Ajustar número de animales si es necesario.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">4️⃣</span><div><div class="proto-item-title">Diseño de la rotación</div><div class="proto-item-desc">Definir secuencia de potreros, días de ocupación (máx. 3), días de descanso (mínimo 60-90 días). Cerco eléctrico para control.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">5️⃣</span><div><div class="proto-item-title">Cargar en la Carta de Pastoreo</div><div class="proto-item-desc">TABLA DE PASTOREO TERRENATES (Excel en Drive). El gerente la actualiza DIARIO: dónde está el ganado, qué día de ocupación van.</div></div></div>
-        </div>
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Seguimiento diario</div>
-          <div class="row"><span class="row-label">Carta de pastoreo</span><span style="font-size:12px">Actualizar diario · Drive: TABLA DE PASTOREO TERRENATES 2025 R4F.xlsx</span></div>
-          <div class="row"><span class="row-label">Reunión de seguimiento</span><span class="row-val">Lunes · con gerente</span></div>
-          <div class="row"><span class="row-label">Coef. agostadero T. Bajo</span><span class="row-val">~10.3 ha/UA</span></div>
-          <div class="row"><span class="row-label">Herramienta rotación</span><span class="row-val">Cerco eléctrico</span></div>
-          <div class="row"><span class="row-label">Días máx en potrero</span><span class="row-val">3 días</span></div>
-          <div class="row"><span class="row-label">Días mínimo de descanso</span><span class="ph">🔄 definir con agrónomo</span></div>
-          <hr style="border-color:var(--border);margin:10px 0">
-          <div class="row"><span class="row-label">Pendiente: inventario potreros Maynes</span><span class="ph">🔄 re-inventario Julio</span></div>
-          <div class="row"><span class="row-label">Pendiente: mapa agua en campo</span><span class="ph">🔄 levantar</span></div>
-        </div>
-      </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Alimentación y Cambios de Dieta</div><div style="font-size:11px;color:var(--muted)">Fases iniciación → crecimiento → finalización; proporciones de becerros / núcleo / agostadero; horarios de toma</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Control de GDP y Pesajes en Engorda</div><div style="font-size:11px;color:var(--muted)">Pesaje quincenal, hoja de cálculo GDP, alerta si GDP < meta, acción correctiva</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Salida de Engorda</div><div style="font-size:11px;color:var(--muted)">Peso objetivo (600 kg), clasificación canal, destino carnicería vs venta directa, registro de salida</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Mortalidad y Enfermedades en Corrales</div><div style="font-size:11px;color:var(--muted)">Foto con timestamp, diagnóstico, tratamiento veterinario, baja en inventario</div></div>
+      <span class="tag tag-a">Pendiente</span>
     </div>
   </div>
 
-  <!-- ── Incidencias ── -->
-  <div class="proto-section san" style="margin-top:8px">
-    <div class="proto-header" onclick="toggleProto(this)">
-      <span class="proto-icon-big">📋</span>
-      <div style="flex:1"><div class="proto-name">SOP — Producción Animal e Incidencias del Hato</div><div style="font-size:11px;color:var(--muted)">Nacimientos · Muertes · Depredadores · Brotes · Lluvia · Base Notion activa</div></div>
-      <span class="tag tag-b">Permanente</span>&nbsp;<span class="paso-arrow">▼</span>
+  </div><!-- /sop-div-engorda -->
+
+  <!-- ══ CACERÍA ══ -->
+  <div id="sop-div-caceria" class="sop-div-panel">
+    <div class="alert a" style="margin:10px 0 6px"><span>🏹</span><span class="alert-text"><b>División Cacería</b> · UMA registrada · Temporada oct–feb · Guías: David Calderón y Leonel Durán Mora · Venado cola blanca, jabalí, pato, paloma</span></div>
+
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Preparación de Temporada</div><div style="font-size:11px;color:var(--muted)">Comederos, bebederos cinegéticos, cámaras trampa, ceba, revisión aguajes · inicio sept</div></div>
+      <span class="tag tag-a">Pendiente</span>
     </div>
-    <div class="proto-body">
-      <div class="g2">
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Eventos que se registran</div>
-          <div class="proto-item"><span class="proto-item-icon">🐣</span><div><div class="proto-item-title">Nacimientos</div><div class="proto-item-desc">Fecha · hora · # arete madre · # arete cría · sexo · peso al nacer · condición del parto · observaciones.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">💀</span><div><div class="proto-item-title">Muertes — FOTO OBLIGATORIA</div><div class="proto-item-desc">Foto del animal muerto con timestamp (app Timestamp Camera). Fecha · # arete · posible causa · quién reporta. NUNCA enterrar o tirar sin fotografiar primero.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">🐺</span><div><div class="proto-item-title">Ataques de depredador</div><div class="proto-item-desc">Foto con timestamp. Descripción del ataque. Número de animales afectados. Acción tomada.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">🤒</span><div><div class="proto-item-title">Brotes o enfermedades</div><div class="proto-item-desc">Síntomas observados · número de animales afectados · acción inmediata · contactar veterinario.</div></div></div>
-          <div class="proto-item"><span class="proto-item-icon">🌧️</span><div><div class="proto-item-title">Lluvia</div><div class="proto-item-desc">Reporte INMEDIATO al grupo WhatsApp cuando llueve en el rancho. Milímetros si hay pluviómetro. Acumulado semanal → base Monitoreo Climático en Notion.</div></div></div>
-        </div>
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Herramientas</div>
-          <div class="row"><span class="row-label">Base principal</span><span style="font-size:12px">Notion: 🐄 Producción Animal e Incidencias del Hato</span></div>
-          <div class="row"><span class="row-label">Monitoreo climático</span><span style="font-size:12px">Notion: 🌧️ Monitoreo Climático (acumulado semanal)</span></div>
-          <div class="row"><span class="row-label">App fotos</span><span class="row-val">Timestamp Camera (con fecha y hora visibles)</span></div>
-          <div class="row"><span class="row-label">Notificación lluvia</span><span class="row-val">WhatsApp al momento</span></div>
-          <hr style="border-color:var(--border);margin:10px 0">
-          <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px">Cámaras trampa (quincenal, ideal domingos):</div>
-          <div class="proto-item"><span class="proto-item-icon">📸</span><div><div class="proto-item-title">SOP — Cámaras trampa y comederos de fauna</div><div class="proto-item-desc">Quincenal (ideal domingos). Recolectar fotos · cambiar pilas · verificar funcionamiento · reportar daño con foto. Las cámaras están en los comederos de venados (semilla/algodón/maíz).</div></div></div>
-        </div>
-      </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Operación de Caza (por visita)</div><div style="font-size:11px;color:var(--muted)">Safety briefing, documentación SEMARNAT, asignación de guía, protocolo de cobros, foto con timestamp</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Gestión de Permisos SEMARNAT</div><div style="font-size:11px;color:var(--muted)">Trámite anual de cuotas UMA, presentación de informes, renovación de operadores</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Cámaras Trampa y Monitoreo de Fauna</div><div style="font-size:11px;color:var(--muted)">Revisión quincenal (ideal domingos), cambio de pilas, descarga de fotos, registro de avistamientos</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Reporte Post-Temporada ADBC</div><div style="font-size:11px;color:var(--muted)">Formato de informe, datos de cobros, inventario post-temporada, proyección siguiente año</div></div>
+      <span class="tag tag-a">Pendiente</span>
     </div>
   </div>
 
-</div>
+  </div><!-- /sop-div-caceria -->
+
+  <!-- ══ HUERTA BIODINÁMICA ══ -->
+  <div id="sop-div-huerta" class="sop-div-panel">
+    <div class="alert g" style="margin:10px 0 6px"><span>🌱</span><span class="alert-text"><b>Huerta Biodinámica</b> · 1.5 ha · 5 sectores · Hortalizas para ~20 familias + carnicería · Plantas medicinales nativas · Jabones artesanales · Vacante biólogo pendiente</span></div>
+
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Calendario de Siembra Biodinámica</div><div style="font-size:11px;color:var(--muted)">Fechas de siembra por especie según calendario lunar Chihuahua, preparaciones 500/501/508</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Preparaciones Biodinámicas (500/501/508)</div><div style="font-size:11px;color:var(--muted)">Elaboración, dinamización y aplicación; frecuencia por sector; registro de lotes</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Riego y Manejo de Sectores</div><div style="font-size:11px;color:var(--muted)">Frecuencia de riego por especie, sistema de goteo, rotación de sectores para descanso del suelo</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Cosecha y Distribución</div><div style="font-size:11px;color:var(--muted)">Programación de cosechas, criterios de calidad, suministro a carnicería, distribución a familias</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Elaboración de Jabones y Plantas Medicinales</div><div style="font-size:11px;color:var(--muted)">Recolección de plantas nativas, proceso de jabonería artesanal, presentación y control de calidad</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Control de Plagas y Sanidad Vegetal</div><div style="font-size:11px;color:var(--muted)">Métodos biodinámicos (sin agroquímicos), preparaciones preventivas, manejo de brotes</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+
+  </div><!-- /sop-div-huerta -->
+
+  <!-- ══ CARNICERÍA ══ -->
+  <div id="sop-div-carniceria" class="sop-div-panel">
+    <div class="alert a" style="margin:10px 0 6px"><span>🥩</span><span class="alert-text"><b>Terrenates Artisan Butchery (CHIH. TERRENATES)</b> · Canal propio + lotes externos · Cortes artesanales · Venta directa al consumidor</span></div>
+
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Recepción de Canal</div><div style="font-size:11px;color:var(--muted)">Peso, temperatura, trazabilidad SINIIGA, condiciones de refrigeración, registro de entrada</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Despiece y Cortes Estándar Terrenates</div><div style="font-size:11px;color:var(--muted)">Guía de cortes por canal, pesos esperados por corte, nomenclatura del catálogo A/B/C</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Etiquetado y Empaque</div><div style="font-size:11px;color:var(--muted)">Etiqueta con: corte, peso, fecha, número de lote (arete origen), temperatura de conservación</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Control de Inventario de Cortes</div><div style="font-size:11px;color:var(--muted)">Registro diario de entradas (canal) y salidas (ventas), punto de reorden por corte</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Ventas y Entregas (paquetes mayoreo)</div><div style="font-size:11px;color:var(--muted)">Catálogo de paquetes ¼/½ canal, proceso de pedido, empaque para envío, facturación</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+  <div class="proto-section sop-pend" style="margin-top:8px">
+    <div class="proto-header" style="cursor:default">
+      <span class="proto-icon-big">📝</span>
+      <div style="flex:1"><div class="proto-name">SOP — Limpieza y Sanidad de Instalaciones</div><div style="font-size:11px;color:var(--muted)">Frecuencia, productos permitidos, temperatura de cámara fría, registros NOM</div></div>
+      <span class="tag tag-a">Pendiente</span>
+    </div>
+  </div>
+
+  </div><!-- /sop-div-carniceria -->
+
+</div><!-- /tab-sops -->
 
 <!-- ══════════════════════════════════════════
      RITMO DE TRABAJO
@@ -4332,6 +4562,12 @@ function showTab(id,btn){
   if(btn) btn.classList.add('active');
   if(id==='calendario') renderCalendar();
 }
+function showSopDiv(id,btn){
+  document.querySelectorAll('.sop-div-panel').forEach(function(p){p.classList.remove('active')});
+  document.querySelectorAll('.sop-nav-btn').forEach(function(b){b.classList.remove('active')});
+  document.getElementById('sop-div-'+id).classList.add('active');
+  if(btn) btn.classList.add('active');
+}
 function showDiv(id,btn){
   document.querySelectorAll('.div-panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.div-tabs button').forEach(b=>b.classList.remove('active'));
@@ -4447,7 +4683,7 @@ const EVENTS={
   '2026-07-24':[{cat:'m',icon:'🌿',text:'ADBC — Curso de Biofábricas (inicio · Casa Grande)'}],
   '2026-07-25':[{cat:'m',icon:'🌿',text:'ADBC — Curso de Biofábricas (fin)'}],
   '2026-08-10':[{cat:'b',icon:'💉',text:'Vacunas Ronda 2 hato comercial (≥15d antes IATF sep)'}],
-  '2026-08-11':[{cat:'b',icon:'🔬',text:'Prueba tricomoniasis toros — PRE-empadre (45d antes IATF ~25 sep) · requiere MVZ externo'}],
+  '2026-08-11':[{cat:'b',icon:'🔬',text:'Prueba tricomoniasis toros — PRE-empadre (45d antes IATF ~25 sep) · MVZ externo'}],
   '2026-09-25':[{cat:'g',icon:'🧬',text:'IATF Comercial — semen fresco (fecha estimada)'}],
   '2026-10-07':[{cat:'a',icon:'🌵',text:'Inicio suplementación época seca (aprox 1ª sem oct)'}],
   '2026-11-01':[{cat:'g',icon:'🐂',text:'Empadre comercial activo · seguimiento de preñez'}],
